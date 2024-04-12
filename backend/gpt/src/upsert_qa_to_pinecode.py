@@ -1,20 +1,22 @@
+import sys
 import json
 import os
 import re
-from openai import OpenAI
-from dotenv import load_dotenv
-from pinecone import Pinecone, ServerlessSpec
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 import string
 import random
+from dotenv import load_dotenv
+from openai import OpenAI
+from pinecone import Pinecone, ServerlessSpec
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 load_dotenv()
 
+# Initialize Pinecone and OpenAI clients
 pinecone_client = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
-# Function to chunk and embed data
+# Function to chunk and embed text data
 def chunk_and_embed(data):
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=400,
@@ -30,15 +32,11 @@ def chunk_and_embed(data):
     return chunks, embeddings
 
 
+# Function to create Pinecone index if not already existing
 def create_index(index_name='cfa-articles-qa'):
-
-    # # Check whether the index with the same name already exists - if so, delete it
-    # if index_name in pinecone_client.list_indexes():
-    #     pinecone_client.delete_index(index_name)
-
-    # Now do stuff
-    print(pinecone_client.list_indexes().names())
+    print("Creating Pinecone index...")
     if index_name not in pinecone_client.list_indexes().names():
+        # Create the index with specified configuration
         pinecone_client.create_index(
             name=index_name,
             dimension=1536,
@@ -48,45 +46,53 @@ def create_index(index_name='cfa-articles-qa'):
                 region='us-west-2'
             )
         )
+        print("Pinecone index created successfully.")
+
+
 # Function to upsert data into Pinecone
-
-
 def upsert_into_pinecone(index_name, namespace_name, data_chunks, embeddings):
     embedding_to_upsert = []
+    # Iterate over chunks and their embeddings
     for i, chunk in enumerate(data_chunks):
+        # Generate a unique ID for each chunk
         rand_chunk_code = ''.join(random.choices(
             string.ascii_letters + string.digits, k=3))
+        # Append the chunk embedding and metadata to upsert list
         embedding_to_upsert.append({'id': f'doc-summ-{rand_chunk_code}',
-                                   'values': embeddings.data[i].embedding, 'metadata': {'text': chunk}})
+                                    'values': embeddings.data[i].embedding, 'metadata': {'text': chunk}})
     try:
+        # Get the index object
         index = pinecone_client.Index('cfa-articles-qa')
+        # Upsert embeddings into the index
         index.upsert(vectors=list(embedding_to_upsert),
                      namespace=namespace_name)
-        # pinecone_client.index.upsert(
-        # index_name=index_name, vectors=embedding_to_upsert, namespace=namespace_name)
+        print("Data upserted into Pinecone successfully.")
     except Exception as e:
         print(f"Error occurred while upserting into Pinecone: {e}")
 
 
-def generate_filename(topic, filetype, separator='_'):
-    # Remove special characters and replace spaces with underscores
+# Function to generate a filename for JSON data
+def generate_filename(topic, filetype, separator='_', set='A'):
     clean_topic = re.sub(r'[^a-zA-Z0-9\s]', '', topic)
     filename = clean_topic.replace(
-        ' ', separator).lower() + f"_technical_qa.{filetype}"
+        ' ', separator).lower() + f"_technical_qa_set{set}.{filetype}"
     return filename
 
 
+# Function to read QA data from a JSON file
 def get_qa_from_file(file_path):
     try:
-        print(file_path)
+        print(f"Reading QA data from file...{file_path}")
         with open(file_path, "r") as json_file:
             json_data = json.load(json_file)
+        print("QA data read successfully.")
         return json_data
     except Exception as e:
         print(f"Error occurred while reading MD file: {e}")
         return None
 
 
+# Function to generate markdown from JSON QA data
 def generate_markdown_from_json(data):
     markdown_text = ""
     markdown_text += f"### {data['question']}\n\n"
@@ -96,29 +102,29 @@ def generate_markdown_from_json(data):
     return markdown_text
 
 
-# Function to generate GPT qa and upsert into Pinecone
+# Function to get questions from JSON files and upsert into Pinecone
 def get_question_and_upsert(topic, set='A'):
     try:
-        # Get GPT qa
-        filename = generate_filename(topic, 'json', '_')
+        # Generate the filename for the JSON data
+        filename = generate_filename(topic, 'json', '_', set)
         file_path = f"json_files/{filename}"
-        print(file_path)
         if os.path.exists(file_path):
+            print(file_path)
+            print("Processing QA data...")
             json_data = get_qa_from_file(file_path)
-            # print(json_data)
             if len(json_data):
+                # Create Pinecone index if not already existing
                 create_index('cfa-articles-qa')
                 for qa_data in json_data:
                     try:
                         markdown_text = generate_markdown_from_json(qa_data)
-                        # print(markdown_text)
-                        # Chunk and embed GPT qa
+                        # Chunk and embed the markdown text
                         qa_chunks, embeddings = chunk_and_embed(markdown_text)
+                        # Get the filename without extension
                         filename = filename.split(".")[0]
                         # Upsert embeddings into Pinecone
-
                         upsert_into_pinecone('cfa-articles-qa',
-                                             f'{filename}-set{set}', qa_chunks, embeddings)
+                                             f'{filename}', qa_chunks, embeddings)
                     except Exception as e:
                         print(f"Error processing QA data: {str(e)}")
         else:
@@ -127,13 +133,18 @@ def get_question_and_upsert(topic, set='A'):
         print(f"Error: {str(e)}")
 
 
-def main():
-    topics = ['Time-Series Analysis', 'Machine Learning',
+# Main function to iterate over topics and process QA data
+def main(set):
+    topics = ['Machine Learning',
               'Organizing, Visualizing, and Describing Data']
     for topic in topics:
-        get_question_and_upsert(topic, 'B')
-        # break
+        get_question_and_upsert(topic, set)
+        break
 
 
+# Entry point of the script
 if __name__ == "__main__":
-    main()
+    set = "A"
+    if len(sys.argv) > 1:
+        set = sys.argv[1]
+    main(set)

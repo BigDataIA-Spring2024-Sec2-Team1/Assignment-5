@@ -1,0 +1,556 @@
+[
+    {
+        "question": "What is the predicted trend value of a time series in period t in a linear trend model?",
+        "options": [
+            "A) \u2038b0+\u2038b1bt",
+            "B) e\u2038b0+\u2038b1tb\u20380+b\u20381t",
+            "C) b0 + b1xt+1",
+            "D) xt = b0 + b1 xt\u22121 + b2 xt\u22122 + . . . + bpxt \u2013 p + \u03b5 t"
+        ],
+        "answer": "Option A",
+        "justification": "The predicted trend value of a time series in period t in a linear trend model is \u2038b0+\u2038b1bt."
+    },
+    {
+        "question": "How should time series that tend to grow at a constant rate be modeled?",
+        "options": [
+            "A) Linear trend models",
+            "B) Log-linear trend models",
+            "C) Moving-average models",
+            "D) ARCH models"
+        ],
+        "answer": "Option B",
+        "justification": "Time series that tend to grow at a constant rate should be modeled by log-linear trend models."
+    },
+    {
+        "question": "Why do trend models often not completely capture the behavior of a time series?",
+        "options": [
+            "A) Due to serial correlation of the error term",
+            "B) Due to seasonality in the data",
+            "C) Due to heteroskedasticity in the data",
+            "D) Due to multicollinearity in the variables"
+        ],
+        "answer": "Option A",
+        "justification": "Trend models often do not completely capture the behavior of a time series as indicated by serial correlation of the error term."
+    },
+    {
+        "question": "What is the order of an autoregressive model denoted as AR(p)?",
+        "options": [
+            "A) p",
+            "B) q",
+            "C) n",
+            "D) ARCH"
+        ],
+        "answer": "Option A",
+        "justification": "The order of an autoregressive model denoted as AR(p) is p."
+    },
+    {
+        "question": "Under what conditions is a time series considered to be covariance stationary?",
+        "options": [
+            "A) The expected value of the time series is constant and finite in all periods",
+            "B) The variance of the time series is constant and finite in all periods",
+            "C) The covariance of the time series with itself for a fixed number of periods in the past or future is constant and finite in all periods",
+            "D) All of the above",
+            "C) are satisfied."
+        ],
+        "answer": "Option D",
+        "justification": "A time series is considered to be covariance stationary if all of the three conditions mentioned (A, B, and C) are satisfied."
+    },
+    {
+        "question": "What can be revealed by inspecting a nonstationary time-series plot?",
+        "options": [
+            "A) Upward or downward trend",
+            "B) Constant mean",
+            "C) Constant variance",
+            "D) Autocorrelation of the error term"
+        ],
+        "answer": "Option A",
+        "justification": "Inspecting a nonstationary time-series plot may reveal an upward or downward trend (nonconstant mean)."
+    },
+    {
+        "question": "When can linear regression be used to estimate an autoregressive time-series model?",
+        "options": [
+            "A) Only when the time series is covariance stationary",
+            "B) Only when the time series has no unit root",
+            "C) Only when the time series follows a random walk process",
+            "D) Only when the time series is seasonally adjusted"
+        ],
+        "answer": "Option A",
+        "justification": "Linear regression can be used to estimate an autoregressive time-series model only when the time series is covariance stationary."
+    },
+    {
+        "question": "What does it mean for a time series to be mean-reverting?",
+        "options": [
+            "A) It tends to fall when its level is above its long-run mean and rise when its level is below its long-run mean",
+            "B) It tends to grow by a constant amount from period to period",
+            "C) It exhibits consistent seasonality",
+            "D) It has a unit root"
+        ],
+        "answer": "Option A",
+        "justification": "A time series is mean-reverting if it tends to fall when its level is above its long-run mean and rise when its level is below its long-run mean."
+    },
+    {
+        "question": "Which type of forecasts are usually more valuable in evaluating the forecasting performance of a time-series model?",
+        "options": [
+            "A) In-sample forecasts",
+            "B) Out-of-sample forecasts",
+            "C) One-period-ahead forecasts",
+            "D) Two-period-ahead forecasts"
+        ],
+        "answer": "Option B",
+        "justification": "Out-of-sample forecasts are usually more valuable in evaluating the forecasting performance of a time-series model than in-sample forecasts."
+    },
+    {
+        "question": "What criterion is used to compare the forecasting accuracy of different time-series models?",
+        "options": [
+            "A) Mean squared error (MSE)",
+            "B) Median absolute deviation (MAD)",
+            "C) Standard deviation (SD)",
+            "D) Root mean squared error (RMSE)"
+        ],
+        "answer": "Option D",
+        "justification": "The root mean squared error (RMSE) is used as a criterion for comparing the forecast accuracy of different time-series models."
+    },
+    {
+        "question": "What can cause the coefficients in time-series models to be unstable across different sample periods?",
+        "options": [
+            "A) Heteroskedasticity in the data",
+            "B) Autocorrelation of the error term",
+            "C) Multicollinearity among the variables",
+            "D) Nonstationarity of the time series"
+        ],
+        "answer": "Option D",
+        "justification": "The coefficients in time-series models can be unstable across different sample periods due to nonstationarity of the time series."
+    },
+    {
+        "question": "What is a random walk in a time series?",
+        "options": [
+            "A) A time series with a constant and finite expected value in all periods",
+            "B) A time series with constant and finite variance in all periods",
+            "C) A time series with a unit root and unpredictable random error",
+            "D) A time series with mean-reverting behavior"
+        ],
+        "answer": "Option C",
+        "justification": "A random walk is a time series in which the value of the series in one period is the value of the series in the previous period plus an unpredictable random error."
+    },
+    {
+        "question": "What is the consequence of a time series having a unit root?",
+        "options": [
+            "A) It is covariance stationary",
+            "B) It exhibits mean reversion",
+            "C) It is nonstationary",
+            "D) It has constant variance"
+        ],
+        "answer": "Option C",
+        "justification": "If a time series has a unit root, then it is nonstationary."
+    },
+    {
+        "question": "How can a time series with a unit root be transformed into one that is covariance stationary?",
+        "options": [
+            "A) By applying a logarithmic transformation",
+            "B) By detrending the series",
+            "C) By first-differencing the time series",
+            "D) By adding a seasonal lag to the model"
+        ],
+        "answer": "Option C",
+        "justification": "A time series with a unit root can be transformed into one that is covariance stationary by first-differencing the time series."
+    },
+    {
+        "question": "What is an n-period moving average calculated as?",
+        "options": [
+            "A) Sum of the current and previous values divided by n",
+            "B) Product of the current and previous values divided by n",
+            "C) Average of the current and previous values multiplied by n",
+            "D) Difference between the current and previous values divided by n"
+        ],
+        "answer": "Option A",
+        "justification": "An n-period moving average is calculated as the sum of the current and previous (n-1) values divided by n."
+    },
+    {
+        "question": "How can the order of a moving-average model (MA) be determined?",
+        "options": [
+            "A) be determined?",
+            "A) By the variance of the error term",
+            "B) By evaluating the autocorrelations of the residuals",
+            "C) By fitting a linear regression model",
+            "D) By calculating the first-difference of the time series",
+            "A) can be determined by evaluating the autocorrelations of the residuals."
+        ],
+        "answer": "Option B",
+        "justification": "The order of a moving-average model (MA) can be determined by evaluating the autocorrelations of the residuals."
+    },
+    {
+        "question": "How do the autocorrelations of autoregressive time series and moving-average time series differ?",
+        "options": [
+            "A) Autoregressive time series have gradually declining autocorrelations, while moving-average time series have sudden drops in autocorrelations.",
+            "B) Autoregressive time series have sudden drops in autocorrelations, while moving-average time series have gradually declining autocorrelations.",
+            "C) Both autoregressive and moving-average time series have gradually declining autocorrelations.",
+            "D) Both autoregressive and moving-average time series have sudden drops in autocorrelations."
+        ],
+        "answer": "Option A",
+        "justification": "The autocorrelations of most autoregressive time series start large and decline gradually, whereas the autocorrelations of an MA(q) time series suddenly drop to 0 after the first q autocorrelations."
+    },
+    {
+        "question": "What does it indicate if the error term of a time-series model shows significant serial correlation at seasonal lags?",
+        "options": [
+            "A) The time series has significant trend component",
+            "B) The time series has significant seasonality",
+            "C) The time series is nonlinear",
+            "D) The time series is stationary"
+        ],
+        "answer": "Option B",
+        "justification": "If the error term of a time-series model shows significant serial correlation at seasonal lags, it indicates that the time series has significant seasonality."
+    },
+    {
+        "question": "How can the forecasted value be calculated using an AR model with a seasonal lag?",
+        "options": [
+            "A) xt+1 = \u2038b0 + \u2038b1xt + \u2038b2xt\u22123",
+            "B) xt+1 = \u2038b0 + \u2038b1xt",
+            "C) xt+1 = \u2038b0 + \u2038b1xt + \u2038b2xt\u22121",
+            "D) xt+1 = \u2038b0 + \u2038b1xt + \u2038b2xt\u22122"
+        ],
+        "answer": "Option A",
+        "justification": "The forecast made in time t for time t + 1 using a quarterly AR(1) model with a seasonal lag would be xt+1 = \u2038b0 + \u2038b1xt + \u2038b2xt\u2212"
+    },
+    {
+        "question": "What are some limitations of ARMA models?",
+        "options": [
+            "A) The parameters in ARMA models can be very unstable",
+            "B) Determining the AR and MA order of the model can be difficult",
+            "C) ARMA models may not forecast well",
+            "D) All of the above"
+        ],
+        "answer": "Option D",
+        "justification": "ARMA models have several limitations, including unstable parameters, difficulties in determining the AR and MA order, and potential forecasting issues."
+    },
+    {
+        "question": "What is autoregressive conditional heteroskedasticity (ARCH) in a time-series model?",
+        "options": [
+            "A) Serial correlation in the residuals",
+            "B) Nonlinear relationship between variables",
+            "C) Nonconstant variance of the error term",
+            "D) Perfect multicollinearity among the variables"
+        ],
+        "answer": "Option C",
+        "justification": "Autoregressive conditional heteroskedasticity (ARCH) in a time-series model refers to the nonconstant variance of the error term."
+    },
+    {
+        "question": "How can first-order ARCH in a time-series model be tested?",
+        "options": [
+            "A) By regressing the squared residual on the squared residual from the previous period",
+            "B) By regressing the error term on the lagged error term",
+            "C) By comparing the autocorrelations of the residuals",
+            "D) By performing a unit root test"
+        ],
+        "answer": "Option A",
+        "justification": "First-order ARCH in a time-series model can be tested by regressing the squared residual on the squared residual from the previous period."
+    },
+    {
+        "question": "What is the formula to predict the variance of the errors in a time-series model if it has ARCH(1) errors?",
+        "options": [
+            "A) \u2038\u03c32t+1 = \u2038a0 + \u2038a1\u2038\u03b52t\u03c3\u2038t+12",
+            "B) \u2038\u03c32t+1 = \u2038b0 + \u2038b1xt",
+            "C) \u2038\u03c32t+1 = \u2038a0 + \u2038a1\u2038\u03b5t\u03c3t+12",
+            "D) \u2038\u03c32t+1 = \u2038b0 + \u2038b1xt + \u2038b2xt\u22121"
+        ],
+        "answer": "Option A",
+        "justification": "If a time-series model has ARCH(1) errors, then the variance of the errors in period t + 1 can be predicted in period t using the formula \u2038\u03c32t+1 = \u2038a0 + \u2038a1\u2038\u03b52t\u03c3\u2038t+"
+    },
+    {
+        "question": "When should linear regression not be used to model the relationship between two time series?",
+        "options": [
+            "A) When either time series has a unit root",
+            "B) When the time series are not cointegrated",
+            "C) When both time series have a unit root",
+            "D) All of the above"
+        ],
+        "answer": "Option D",
+        "justification": "Linear regression should not be used to model the relationship between two time series when either time series has a unit root, or when the time series are not cointegrated."
+    },
+    {
+        "question": "How can cointegration be determined between two time series?",
+        "options": [
+            "A) By evaluating the autocorrelations of the residuals",
+            "B) By performing a unit root test on both time series",
+            "C) By calculating the cross-correlation between the two time series",
+            "D) By regressing one time series against the other"
+        ],
+        "answer": "Option B",
+        "justification": "Cointegration between two time series can be determined by performing a unit root test on both time series."
+    },
+    {
+        "question": "What test can be used to determine whether time series are cointegrated?",
+        "options": [
+            "A) Dickey\u2013Fuller test",
+            "B) Autocorrelation test",
+            "C) Durbin-Watson test",
+            "D) ARCH test"
+        ],
+        "answer": "Option A",
+        "justification": "The (Engle\u2013Granger) Dickey\u2013Fuller test can be used to determine whether time series are cointegrated."
+    },
+    {
+        "question": "What should be calculated and evaluated to determine the predicted trend value for a time series modeled as a linear trend?",
+        "options": [
+            "A) The seasonal lag",
+            "B) The seasonal index",
+            "C) The estimated trend coefficients",
+            "D) The moving average"
+        ],
+        "answer": "Option C",
+        "justification": "The predicted trend value for a time series modeled as a linear trend should be calculated and evaluated using the estimated trend coefficients."
+    },
+    {
+        "question": "When should a log-linear trend be used with a particular time series?",
+        "options": [
+            "A) When the time series tends to grow by a constant amount from period to period",
+            "B) When the time series tends to grow at a constant rate",
+            "C) When the time series exhibits seasonality",
+            "D) When the time series has a unit root"
+        ],
+        "answer": "Option B",
+        "justification": "A log-linear trend should be used with a particular time series when it tends to grow at a constant rate."
+    },
+    {
+        "question": "What is the requirement for a time series to be covariance stationary?",
+        "options": [
+            "A) The expected value of the time series must be constant and finite in all periods",
+            "B) The variance of the time series must be constant and finite in all periods",
+            "C) The covariance of the time series with itself for a fixed number of periods in the past or future must be constant and finite in all periods",
+            "D) All of the above",
+            "C) must be satisfied."
+        ],
+        "answer": "Option D",
+        "justification": "The requirement for a time series to be covariance stationary is that all of the conditions mentioned (A, B, and C) must be satisfied."
+    },
+    {
+        "question": "How can the autocorrelations of the residuals be used to test whether an autoregressive model fits the time series?",
+        "options": [
+            "A) By comparing them to a predetermined cutoff value",
+            "B) By calculating the sum of the autocorrelations",
+            "C) By regressing them on the time period",
+            "D) By examining their significance using a statistical test"
+        ],
+        "answer": "Option D",
+        "justification": "The autocorrelations of the residuals can be used to test whether an autoregressive model fits the time series by examining their significance using a statistical test."
+    },
+    {
+        "question": "What can be calculated to determine the mean-reverting level of a time series?",
+        "options": [
+            "A) The autocorrelations of the error term",
+            "B) The autocorrelations of the residuals",
+            "C) The difference between the current and long-run mean",
+            "D) The variance of the error term"
+        ],
+        "answer": "Option C",
+        "justification": "The mean-reverting level of a time series can be determined by calculating the difference between the current and long-run mean."
+    },
+    {
+        "question": "How can in-sample and out-of-sample forecasts be distinguished?",
+        "options": [
+            "A) In-sample forecasts are based on historical data, while out-of-sample forecasts are based on new data not used in estimation.",
+            "B) In-sample forecasts are more accurate than out-of-sample forecasts.",
+            "C) In-sample forecasts are used for short-term predictions, while out-of-sample forecasts are used for long-term predictions.",
+            "D) Out-of-sample forecasts are based on historical data, while in-sample forecasts are based on new data not used in estimation."
+        ],
+        "answer": "Option A",
+        "justification": "In-sample forecasts are based on historical data, while out-of-sample forecasts are based on new data not used in estimation."
+    },
+    {
+        "question": "What criterion is used to compare the forecasting accuracy of different time-series models?",
+        "options": [
+            "A) Mean absolute deviation (MAD)",
+            "B) Median absolute deviation (MAD)",
+            "C) Mean squared error (MSE)",
+            "D) Root mean squared error (RMSE)"
+        ],
+        "answer": "Option D",
+        "justification": "The root mean squared error (RMSE) is used as a criterion for comparing the forecasting accuracy of different time-series models."
+    },
+    {
+        "question": "What is one of the key factors contributing to the instability of coefficients in time-series models?",
+        "options": [
+            "A) Multicollinearity among the variables",
+            "B) Serial correlation in the error term",
+            "C) Heteroskedasticity in the residuals",
+            "D) Nonstationarity of the time series"
+        ],
+        "answer": "Option D",
+        "justification": "One of the key factors contributing to the instability of coefficients in time-series models is the nonstationarity of the time series."
+    },
+    {
+        "question": "What distinguishes a random walk process from a covariance stationary process?",
+        "options": [
+            "A) Covariance stationary processes have unit roots, while random walk processes do not.",
+            "B) Random walk processes have constant variance, while covariance stationary processes do not.",
+            "C) Random walk processes have stable coefficients, while covariance stationary processes have unstable coefficients.",
+            "D) Covariance stationary processes follow a trend, while random walk processes do not."
+        ],
+        "answer": "Option A",
+        "justification": "Covariance stationary processes have unit roots, while random walk processes do not."
+    },
+    {
+        "question": "When are unit roots likely to occur in a time series?",
+        "options": [
+            "A) When the time series is linear",
+            "B) When the time series has constant variance",
+            "C) When the time series exhibits mean reversion",
+            "D) When the time series is nonstationary"
+        ],
+        "answer": "Option D",
+        "justification": "Unit roots are likely to occur in a time series when it is nonstationary."
+    },
+    {
+        "question": "What is the relation between the unit root test for nonstationarity and autoregressive time-series models?",
+        "options": [
+            "A) The unit root test is used to determine the order of the autoregressive model",
+            "B) The unit root test is used to determine the presence of multicollinearity in the model",
+            "C) The unit root test is used to check for the stationarity assumption of the autoregressive model",
+            "D) The unit root test is used to measure the goodness-of-fit of the autoregressive model"
+        ],
+        "answer": "Option C",
+        "justification": "The unit root test for nonstationarity is used to check for the stationarity assumption of the autoregressive model."
+    },
+    {
+        "question": "How can seasonality in a time-series model be tested?",
+        "options": [
+            "A) By comparing the autocorrelations of the residuals to a cutoff value",
+            "B) By adding seasonal lags to the model and examining their significance",
+            "C) By performing a unit root test on the time series",
+            "D) By detrending the series and examining the residuals"
+        ],
+        "answer": "Option B",
+        "justification": "Seasonality in a time-series model can be tested by adding seasonal lags to the model and examining their significance."
+    },
+    {
+        "question": "What is autoregressive conditional heteroskedasticity (ARCH) and what does it predict?",
+        "options": [
+            "A) Nonlinearity in the relationship between variables, predicting the future value of the time series",
+            "B) Nonconstant variance of the error term, predicting the future volatility of the time series",
+            "C) Serial correlation in the residuals, predicting the future trends of the time series",
+            "D) Multicollinearity among the variables, predicting the future correlation of the time series"
+        ],
+        "answer": "Option B",
+        "justification": "Autoregressive conditional heteroskedasticity (ARCH) refers to the nonconstant variance of the error term and predicts the future volatility of the time series."
+    },
+    {
+        "question": "What should be analyzed in time-series variables before using linear regression?",
+        "options": [
+            "A) Autocorrelations and partial autocorrelations",
+            "B) Coefficients and p-values",
+            "C) Standard errors and confidence intervals",
+            "D) Nonstationarity and cointegration"
+        ],
+        "answer": "Option D",
+        "justification": "Time-series variables should be analyzed for nonstationarity and cointegration before using linear regression."
+    },
+    {
+        "question": "How can an appropriate time-series model be determined for a given investment problem?",
+        "options": [
+            "A) By conducting a linear regression analysis",
+            "B) By testing for multicollinearity among the variables",
+            "C) By examining the autocorrelations of the residuals",
+            "D) By evaluating the goodness-of-fit statistics"
+        ],
+        "answer": "Option C",
+        "justification": "An appropriate time-series model for a given investment problem can be determined by examining the autocorrelations of the residuals."
+    },
+    {
+        "question": "How can the predicted trend value for a time series modeled as a log-linear trend be evaluated?",
+        "options": [
+            "A) By calculating the autocorrelations of the residuals",
+            "B) By comparing the trend coefficients",
+            "C) By performing a unit root test",
+            "D) By estimating the moving average"
+        ],
+        "answer": "Option B",
+        "justification": "The predicted trend value for a time series modeled as a log-linear trend can be evaluated by comparing the trend coefficients."
+    },
+    {
+        "question": "What determines whether a linear or log-linear trend should be used with a particular time series?",
+        "options": [
+            "A) The presence of seasonality in the data",
+            "B) The size of the time series dataset",
+            "C) The growth pattern of the time series",
+            "D) The choice of the analyst"
+        ],
+        "answer": "Option C",
+        "justification": "The growth pattern of the time series determines whether a linear or log-linear trend should be used."
+    },
+    {
+        "question": "How should a time series be analyzed if it is not stationary?",
+        "options": [
+            "A) By applying a logarithmic transformation",
+            "B) By performing a unit root test",
+            "C) By including seasonal lags in the model",
+            "D) By evaluating the autocorrelations of the residuals"
+        ],
+        "answer": "Option B",
+        "justification": "If a time series is not stationary, it should be analyzed by performing a unit root test."
+    },
+    {
+        "question": "What can be concluded if a time series is found to be cointegrated?",
+        "options": [
+            "A) Linear regression can be used to model the relationship between the time series",
+            "B) The time series has a unit root",
+            "C) A unit root test should be performed on the time series",
+            "D) The time series is covariance stationary"
+        ],
+        "answer": "Option A",
+        "justification": "If a time series is found to be cointegrated, linear regression can be used to model the relationship between the time series."
+    },
+    {
+        "question": "How can the predicted trend value for a time series modeled as a linear trend be calculated?",
+        "options": [
+            "A) By applying a first-difference transformation",
+            "B) By calculating the autocorrelations of the residuals",
+            "C) By using the moving average model",
+            "D) By using the estimated trend coefficients"
+        ],
+        "answer": "Option D",
+        "justification": "The predicted trend value for a time series modeled as a linear trend can be calculated using the estimated trend coefficients."
+    },
+    {
+        "question": "Why is it important to evaluate the limitations of trend models?",
+        "options": [
+            "A) To assess their forecasting accuracy",
+            "B) To determine if they meet the assumptions of stationarity",
+            "C) To determine if they capture the behavior of the time series fully",
+            "D) To compare them to other time-series models"
+        ],
+        "answer": "Option C",
+        "justification": "It is important to evaluate the limitations of trend models to determine if they capture the behavior of the time series fully."
+    },
+    {
+        "question": "What is required for a time series to be considered covariance stationary?",
+        "options": [
+            "A) Nonconstant variance in all periods",
+            "B) Nonfinite expected value in all periods",
+            "C) Nonconstant covariance with itself in all periods",
+            "D) Constant and finite expected value, variance, and covariance properties"
+        ],
+        "answer": "Option D",
+        "justification": "For a time series to be considered covariance stationary, it should have a constant and finite expected value, variance, and covariance properties."
+    },
+    {
+        "question": "What is the purpose of calculating one- and two-period-ahead forecasts in an AR model?",
+        "options": [
+            "A) To compare the accuracy of different forecasting models",
+            "B) To identify any trend or seasonality in the time series",
+            "C) To measure the volatility of the time series",
+            "D) To assess the performance of the model over short- and long-term horizons"
+        ],
+        "answer": "Option D",
+        "justification": "The purpose of calculating one- and two-period-ahead forecasts in an AR model is to assess the performance of the model over short- and long-term horizons."
+    },
+    {
+        "question": "Why are out-of-sample forecasts usually more valuable in evaluating the forecasting performance of a time-series model?",
+        "options": [
+            "A) They are based on new data not used in estimation",
+            "B) They provide accurate short-term predictions",
+            "C) They capture the long-term trends of the time series",
+            "D) They consider the seasonality component of the data"
+        ],
+        "answer": "Option A",
+        "justification": "Out-of-sample forecasts are usually more valuable in evaluating the forecasting performance of a time-series model because they are based on new data not used in estimation, providing a more realistic assessment of the model's performance."
+    }
+]

@@ -12,3 +12,4 @@ sqlalchemy==1.4.51
 snowflake-sqlalchemy==1.5.1
 pandas
 pydantic
+retrying

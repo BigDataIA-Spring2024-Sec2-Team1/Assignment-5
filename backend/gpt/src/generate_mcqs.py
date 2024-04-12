@@ -1,9 +1,10 @@
+import sys
 import csv
-from openai import OpenAI
-from dotenv import load_dotenv
 import os
 import re
 import json
+from openai import OpenAI
+from dotenv import load_dotenv
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -48,7 +49,6 @@ def get_gpt_response(q_prompt):
     )
     text = ""
     for chunk in response:
-        # print(type(chunk.choices[0].delta))
         if chunk.choices[0].delta.content is not None:
             text = text + chunk.choices[0].delta.content
     return text
@@ -59,7 +59,6 @@ def parse_text_to_json(text):
     options_pattern = r'[A-D]\)[^\n]+'
     answer_pattern = r'Answer: ([A-D]) with justification - (.+)'
 
-    # Extracting question, options, and answer
     question_match = re.search(question_pattern, text)
     options_match = re.findall(options_pattern, text)
     answer_match = re.search(answer_pattern, text)
@@ -92,7 +91,7 @@ def generate_mcq_json(mcqs, topic_name, set='A'):
     return json.dumps(json_data, indent=4)
 
 
-def generate_mcqs(topic_name, lo_text, summary_text, set='A', num_questions=50):
+def generate_mcqs(lo_text, summary_text, num_questions=50):
     prompt = f"""
         As a professor tasked with building a quiz question bank from the given summary and learning outcomes, your primary objective is to draft {num_questions} questions adhering to specific guidelines. 
         The summary you have is "{summary_text}" and the learning outcome is "{lo_text}."
@@ -118,8 +117,7 @@ def generate_mcqs(topic_name, lo_text, summary_text, set='A', num_questions=50):
     """
     response = get_gpt_response(prompt)
 
-    ex_res = generate_mcq_json(response, topic_name, set)
-    return ex_res
+    return response
 
 
 def formatText(text):
@@ -133,9 +131,10 @@ def get_mcqs(topic_name="", set='A', num_of_question=50):
         if len(topic_name):
             result = get_learning_outcome_and_summary_text(topic_name)
             lo_text, summary_text = result
-            res = generate_mcqs(topic_name, formatText(
-                lo_text), formatText(summary_text), set, num_of_question)
-            return res
+            response = generate_mcqs(formatText(
+                lo_text), formatText(summary_text), num_of_question)
+            ex_res = generate_mcq_json(response, topic_name, set)
+            return ex_res
     except Exception as e:
         print(f"Error: {str(e)}")
     return mcq_content
@@ -146,28 +145,29 @@ def save_summary_to_json(json_data, file_path):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    # Write JSON data to the file with specified indentation
     with open(file_path, "w") as json_file:
         json.dump(json_data, json_file, indent=4)
     print("JSON data has been stored to:", file_path)
 
 
 def generate_filename(topic, filetype, set='A'):
-    # Remove special characters and replace spaces with underscores
     clean_topic = re.sub(r'[^a-zA-Z0-9\s]', '', topic)
     filename = clean_topic.replace(' ', '_').lower(
     ) + f"_technical_qa_set{set}.{filetype}"
     return filename
 
 
-def main():
+def main(set):
     topics = ['Time-Series Analysis', 'Machine Learning',
               'Organizing, Visualizing, and Describing Data']
     for topic in topics:
-        mcq_content = get_mcqs(topic, 'A', 50)
-        # break
-    # print("Final", mcq_content)
+        mcq_content = get_mcqs(topic, set, 50)
+        break
+    print("Final", mcq_content)
 
 
 if __name__ == "__main__":
-    main()
+    set = "A"
+    if len(sys.argv) > 1:
+        set = sys.argv[1]
+    main(set)
