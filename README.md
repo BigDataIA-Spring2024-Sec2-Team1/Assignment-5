@@ -34,13 +34,9 @@ Open API GPT
 │   ├── main.py
 │   ├── requirements.txt
 │   └── stremlit.py
-├── logs
-│   ├── dag_processor_manager
-│   │   └── dag_processor_manager.log
-│   └── scheduler
-│       └── latest -> 2024-04-10
 ├── plugins
 └── requirements.txt
+
 ```
 
 *You can generate the project tree using following tools*
