@@ -1,0 +1,552 @@
+[
+    {
+        "question": "What is the predicted trend value of a time series in a linear trend model?",
+        "options": [
+            "A) \u2038b0",
+            "B) \u2038b1",
+            "C) \u2038b0+\u2038b1b\u20380+b\u20381 t",
+            "D) e\u2038b0+\u2038b1teb\u20380+b\u20381t"
+        ],
+        "answer": "Option C",
+        "justification": "The predicted trend value of a time series in a linear trend model is \u2038b0+\u2038b1b\u20380+b\u20381 t."
+    },
+    {
+        "question": "When should time series that tend to grow by a constant amount from period to period be modeled?",
+        "options": [
+            "A) Linear trend models",
+            "B) Log-linear trend models",
+            "C) AR(p) models",
+            "D) MA(q) models"
+        ],
+        "answer": "Option A",
+        "justification": "Time series that tend to grow by a constant amount from period to period should be modeled by linear trend models."
+    },
+    {
+        "question": "What is the key indication that trend models may not completely capture the behavior of a time series?",
+        "options": [
+            "A) Seasonal correlation",
+            "B) Serial correlation",
+            "C) Autocorrelation",
+            "D) Covariance stationary"
+        ],
+        "answer": "Option B",
+        "justification": "The key indication that trend models may not completely capture the behavior of a time series is serial correlation of the error term."
+    },
+    {
+        "question": "Which conditions must be satisfied for a time series to be covariance stationary?",
+        "options": [
+            "A) Constant and finite expected value",
+            "B) Constant and finite variance",
+            "C) Constant and finite covariance with itself",
+            "D) All of the above"
+        ],
+        "answer": "Option D",
+        "justification": "A time series must satisfy the conditions of having a constant and finite expected value, a constant and finite variance, and a constant and finite covariance with itself to be covariance stationary."
+    },
+    {
+        "question": "What does a nonstationary time-series plot often reveal?",
+        "options": [
+            "A) Serial correlation",
+            "B) Seasonal correlation",
+            "C) Upward or downward trend",
+            "D) Autocorrelation"
+        ],
+        "answer": "Option C",
+        "justification": "A nonstationary time-series plot often reveals an upward or downward trend, indicating a nonconstant mean."
+    },
+    {
+        "question": "When is linear regression not valid for estimating an autoregressive time-series model?",
+        "options": [
+            "A) When the time series is not covariance stationary",
+            "B) When the time series has a unit root",
+            "C) When the time series is mean reverting",
+            "D) When the time series has ARCH errors"
+        ],
+        "answer": "Option A",
+        "justification": "Linear regression is not valid for estimating an autoregressive time-series model when the time series is not covariance stationary."
+    },
+    {
+        "question": "What does it mean for a time series to be mean reverting?",
+        "options": [
+            "A) It tends to grow by a constant amount from period to period",
+            "B) It tends to grow at a constant rate",
+            "C) It tends to fall when above its long-run mean and rise when below its long-run mean",
+            "D) It tends to have autocorrelations of 0 at all lags"
+        ],
+        "answer": "Option C",
+        "justification": "A time series is mean reverting if it tends to fall when its level is above its long-run mean and rise when its level is below its long-run mean."
+    },
+    {
+        "question": "Which type of forecast is more valuable in evaluating the forecasting performance of a time-series model?",
+        "options": [
+            "A) In-sample forecast",
+            "B) Out-of-sample forecast",
+            "C) Autoregressive forecast",
+            "D) Moving average forecast"
+        ],
+        "answer": "Option B",
+        "justification": "Out-of-sample forecasts are usually more valuable in evaluating the forecasting performance of a time-series model than in-sample forecasts."
+    },
+    {
+        "question": "What does the root mean squared error (RMSE) measure in comparing forecast accuracy?",
+        "options": [
+            "A) Mean squared forecast error",
+            "B) Variance of the forecast error",
+            "C) Average squared forecast error",
+            "D) Standard deviation of the forecast error"
+        ],
+        "answer": "Option C",
+        "justification": "The root mean squared error (RMSE) measures the square root of the average squared forecast error, providing a criterion for comparing the forecast accuracy of different time-series models."
+    },
+    {
+        "question": "Why may the coefficients in time-series models be unstable across different sample periods?",
+        "options": [
+            "A) Due to serial correlation",
+            "B) Due to seasonal correlation",
+            "C) Due to nonstationarity",
+            "D) Due to mean reversion"
+        ],
+        "answer": "Option C",
+        "justification": "The coefficients in time-series models may be unstable across different sample periods due to nonstationarity of the data."
+    },
+    {
+        "question": "What is a random walk in a time series?",
+        "options": [
+            "A) A series with a constant mean and finite variance",
+            "B) A series with a unit root",
+            "C) A series with an autoregressive model",
+            "D) A series with a moving-average model"
+        ],
+        "answer": "Option B",
+        "justification": "A random walk is a time series in which the value of the series in one period is the value of the series in the previous period plus an unpredictable random error, indicating a unit root."
+    },
+    {
+        "question": "What is the necessary condition for using linear regression to model the relationship between two time series?",
+        "options": [
+            "A) Both time series have a unit root",
+            "B) Neither time series has a unit root",
+            "C) The time series are cointegrated",
+            "D) The time series have ARCH errors"
+        ],
+        "answer": "Option B",
+        "justification": "In order to use linear regression to model the relationship between two time series, neither of the time series should have a unit root."
+    },
+    {
+        "question": "How can a time series with a unit root be transformed for analysis with an autoregressive model?",
+        "options": [
+            "A) By applying a random error term",
+            "B) By adding a drift term",
+            "C) By first-differencing the time series",
+            "D) By including a seasonal lag in the model"
+        ],
+        "answer": "Option C",
+        "justification": "A time series with a unit root can be transformed for analysis with an autoregressive model by first-differencing the time series."
+    },
+    {
+        "question": "How can the order q of a moving-average model (MA(q)) be determined?",
+        "options": [
+            "A) By testing for ARCH errors",
+            "B) By testing for autocorrelations",
+            "C) By testing for unit roots",
+            "D) By testing for seasonal correlations"
+        ],
+        "answer": "Option B",
+        "justification": "The order q of a moving-average model can be determined by testing for autocorrelations beyond the first q, which should be zero."
+    },
+    {
+        "question": "What distinguishes autoregressive and moving-average time series based on their autocorrelations?",
+        "options": [
+            "A) Autocorrelations start large and decline gradually for autoregressive time series",
+            "B) Autocorrelations start large and decline gradually for moving-average time series",
+            "C) Autocorrelations start large and drop suddenly to 0 for autoregressive time series",
+            "D) Autocorrelations start large and drop suddenly to 0 for moving-average time series"
+        ],
+        "answer": "Option C",
+        "justification": "Autocorrelations of most autoregressive time series start large and decline gradually, whereas the autocorrelations of an MA(q) time series suddenly drop to 0 after the first q autocorrelations."
+    },
+    {
+        "question": "What does the presence of significant serial correlation at seasonal lags indicate in a time series?",
+        "options": [
+            "A) ARCH errors",
+            "B) Seasonality",
+            "C) Autoregressive model",
+            "D) Covariance stationary"
+        ],
+        "answer": "Option B",
+        "justification": "The presence of significant serial correlation at seasonal lags indicates seasonality in a time series."
+    },
+    {
+        "question": "What can be done to model seasonality in a time-series model?",
+        "options": [
+            "A) Including a drift term",
+            "B) Including a moving-average term",
+            "C) Including a seasonal lag",
+            "D) Including an autoregressive term"
+        ],
+        "answer": "Option C",
+        "justification": "Seasonality in a time-series model can often be modeled by including a seasonal lag in the model, such as adding a term lagged four quarters to an AR(1) model on quarterly observations."
+    },
+    {
+        "question": "What are the limitations of ARMA models?",
+        "options": [
+            "A) Unstable parameters",
+            "B) Difficult determination of AR and MA order",
+            "C) Potential poor forecasting performance",
+            "D) All of the above"
+        ],
+        "answer": "Option D",
+        "justification": "The limitations of ARMA models include unstable parameters, difficulty in determining the AR and MA order, and potential poor forecasting performance."
+    },
+    {
+        "question": "What does autoregressive conditional heteroskedasticity (ARCH) capture in a time-series model?",
+        "options": [
+            "A) Seasonal correlation",
+            "B) Serial correlation",
+            "C) Nonstationarity",
+            "D) Variance dependency"
+        ],
+        "answer": "Option D",
+        "justification": "Autoregressive conditional heteroskedasticity (ARCH) captures the dependency of the variance of the error term on previous errors in a time-series model."
+    },
+    {
+        "question": "How can first-order ARCH be tested in a time-series model?",
+        "options": [
+            "A) By testing for unit roots",
+            "B) By testing for seasonal correlations",
+            "C) By regressing squared residuals on squared residuals from the previous period",
+            "D) By comparing autocorrelations of the residuals"
+        ],
+        "answer": "Option C",
+        "justification": "First-order ARCH in a time-series model can be tested by regressing squared residuals on squared residuals from the previous period."
+    },
+    {
+        "question": "When should linear regression be used to analyze time-series variables?",
+        "options": [
+            "A) When all variables have unit roots",
+            "B) When the variables are cointegrated",
+            "C) When the variables have ARCH errors",
+            "D) When the variables are covariance stationary"
+        ],
+        "answer": "Option B",
+        "justification": "Linear regression should be used to analyze time-series variables when the variables are cointegrated."
+    },
+    {
+        "question": "How can cointegration be determined in time series?",
+        "options": [
+            "A) By testing for ARCH errors",
+            "B) By testing for autocorrelations",
+            "C) By testing for unit roots",
+            "D) By testing for seasonal correlations"
+        ],
+        "answer": "Option C",
+        "justification": "Cointegration in time series can be determined by testing for unit roots."
+    },
+    {
+        "question": "What can the Dickey-Fuller test determine for time series?",
+        "options": [
+            "A) Serial correlation",
+            "B) Seasonal correlation",
+            "C) Cointegration",
+            "D) Nonstationarity"
+        ],
+        "answer": "Option D",
+        "justification": "The Dickey-Fuller test can be used to determine whether time series are nonstationary."
+    },
+    {
+        "question": "How many options should a question provide?",
+        "options": [
+            "A) Three",
+            "B) Four",
+            "C) Five",
+            "D) Unlimited"
+        ],
+        "answer": "Option B",
+        "justification": "Each question should provide four options."
+    },
+    {
+        "question": "How can the predicted trend value for a time series be evaluated?",
+        "options": [
+            "A) By calculating the expected value",
+            "B) By comparing with a benchmark",
+            "C) By calculating the root mean squared error",
+            "D) By evaluating the estimated trend coefficients"
+        ],
+        "answer": "Option D",
+        "justification": "The predicted trend value for a time series can be evaluated by examining the estimated trend coefficients."
+    },
+    {
+        "question": "Can a time series be modeled as both a linear trend and a log-linear trend simultaneously?",
+        "options": [
+            "A) Yes",
+            "B) No",
+            "C) It depends on the data",
+            "D) It depends on the model"
+        ],
+        "answer": "Option B",
+        "justification": "A time series cannot be simultaneously modeled as both a linear trend and a log-linear trend."
+    },
+    {
+        "question": "When should a log-linear trend be used with a time series?",
+        "options": [
+            "A) When it tends to grow by a constant amount from period to period",
+            "B) When it tends to grow at a constant rate",
+            "C) When it has a nonstationary behavior",
+            "D) When it exhibits ARCH errors"
+        ],
+        "answer": "Option B",
+        "justification": "A log-linear trend should be used with a time series when it tends to grow at a constant rate."
+    },
+    {
+        "question": "What is the significance of a time series being covariance stationary?",
+        "options": [
+            "A) It indicates mean reversion",
+            "B) It ensures forecast accuracy",
+            "C) It allows for linear regression modeling",
+            "D) It provides a constant and finite variance"
+        ],
+        "answer": "Option C",
+        "justification": "A time series being covariance stationary is significant as it allows for linear regression modeling."
+    },
+    {
+        "question": "How can an autoregressive model of order p be used to predict the current value of a time series?",
+        "options": [
+            "A) By using the previous p lags",
+            "B) By including a drift term",
+            "C) By estimating the ARCH coefficients",
+            "D) By adding a seasonal lag"
+        ],
+        "answer": "Option A",
+        "justification": "An autoregressive model of order p uses the previous p lags of a time series to predict its current value."
+    },
+    {
+        "question": "What is the one-period-ahead forecast from an AR(1) model?",
+        "options": [
+            "A) \u2038xt+1=\u2038b0+\u2038b1xt",
+            "B) \u2038xt+1=\u2038b0+\u2038b1xt+1",
+            "C) \u2038xt+1=\u2038b0+\u2038b1xt-1",
+            "D) \u2038xt+1=\u2038b0+\u2038b1xt-4"
+        ],
+        "answer": "Option A",
+        "justification": "The one-period-ahead forecast from an AR(1) model is \u2038xt+1=\u2038b0+\u2038b1xt."
+    },
+    {
+        "question": "How can the forecast from an AR(1) model be extended to a two-period-ahead forecast?",
+        "options": [
+            "A) By adding a drift term",
+            "B) By including a moving-average term",
+            "C) By using the forecast for the first period as a predictor for the second period",
+            "D) By including a seasonal lag"
+        ],
+        "answer": "Option C",
+        "justification": "The forecast from an AR(1) model can be extended to a two-period-ahead forecast by using the forecast for the first period as a predictor for the second period."
+    },
+    {
+        "question": "Which type of forecast is made for a time period different from the one used for estimating the model?",
+        "options": [
+            "A) In-sample forecast",
+            "B) Out-of-sample forecast",
+            "C) Autoregressive forecast",
+            "D) Moving average forecast"
+        ],
+        "answer": "Option B",
+        "justification": "An out-of-sample forecast is made for a time period different from the one used for estimating the model."
+    },
+    {
+        "question": "How is the root mean squared error (RMSE) calculated?",
+        "options": [
+            "A) By taking the square root of the average squared forecast error",
+            "B) By summing the forecast errors",
+            "C) By dividing the forecast errors by the standard deviation",
+            "D) By comparing the forecast accuracy with a benchmark"
+        ],
+        "answer": "Option A",
+        "justification": "The root mean squared error (RMSE) is calculated by taking the square root of the average squared forecast error."
+    },
+    {
+        "question": "Why are the coefficients in time-series models often unstable across different sample periods?",
+        "options": [
+            "A) Due to serial correlation",
+            "B) Due to mean reversion",
+            "C) Due to nonstationarity",
+            "D) Due to ARCH errors"
+        ],
+        "answer": "Option C",
+        "justification": "The coefficients in time-series models are often unstable across different sample periods due to nonstationarity in the data."
+    },
+    {
+        "question": "What distinguishes a random walk time series?",
+        "options": [
+            "A) Unit root",
+            "B) Covariance stationary",
+            "C) Seasonal correlation",
+            "D) Autocorrelation"
+        ],
+        "answer": "Option A",
+        "justification": "A random walk time series is distinguished by having a unit root, indicating a lack of covariance stationarity."
+    },
+    {
+        "question": "Is a random walk with drift a covariance stationary process?",
+        "options": [
+            "A) Yes",
+            "B) No",
+            "C) It depends on the drift term",
+            "D) It depends on the random error term"
+        ],
+        "answer": "Option B",
+        "justification": "A random walk with drift is not a covariance stationary process."
+    },
+    {
+        "question": "What happens to a time series if it has a unit root?",
+        "options": [
+            "A) It becomes covariance stationary",
+            "B) It becomes mean reverting",
+            "C) It becomes ARCH(1)",
+            "D) It remains nonstationary"
+        ],
+        "answer": "Option D",
+        "justification": "If a time series has a unit root, it remains nonstationary."
+    },
+    {
+        "question": "How can a time series with a unit root be transformed to analyze it with an AR model?",
+        "options": [
+            "A) By including a drift term",
+            "B) By first-differencing the time series",
+            "C) By adding a moving-average term",
+            "D) By testing for ARCH errors"
+        ],
+        "answer": "Option B",
+        "justification": "A time series with a unit root can be transformed by first-differencing the time series before analyzing it with an AR model."
+    },
+    {
+        "question": "How is an n-period moving average calculated for a time series?",
+        "options": [
+            "A) By summing the current and past (n - 1) values and dividing by n",
+            "B) By taking the average of the current and past (n - 1) values",
+            "C) By multiplying the current and past (n - 1) values and dividing by n",
+            "D) By summing the squared residuals over the last n periods"
+        ],
+        "answer": "Option A",
+        "justification": "An n-period moving average of a time series is calculated by summing the current and past (n - 1) values and dividing by n."
+    },
+    {
+        "question": "How can the order q of a moving-average model be determined?",
+        "options": [
+            "A) By testing for ARCH errors",
+            "B) By testing for autocorrelations",
+            "C) By testing for unit roots",
+            "D) By testing for seasonal correlations"
+        ],
+        "answer": "Option B",
+        "justification": "The order q of a moving-average model can be determined by testing for autocorrelations."
+    },
+    {
+        "question": "How do the autocorrelations of autoregressive time series typically behave?",
+        "options": [
+            "A) Start large and decline gradually",
+            "B) Start large and drop suddenly to 0",
+            "C) Start small and increase gradually",
+            "D) Start small and drop suddenly to 0"
+        ],
+        "answer": "Option A",
+        "justification": "The autocorrelations of autoregressive time series typically start large and decline gradually."
+    },
+    {
+        "question": "How do the autocorrelations of moving-average time series typically behave?",
+        "options": [
+            "A) Start large and decline gradually",
+            "B) Start large and drop suddenly to 0",
+            "C) Start small and increase gradually",
+            "D) Start small and drop suddenly to 0"
+        ],
+        "answer": "Option B",
+        "justification": "The autocorrelations of moving-average time series typically start large and drop suddenly to 0 after the first q autocorrelations."
+    },
+    {
+        "question": "What does the presence of significant serial correlation at seasonal lags indicate in a time series?",
+        "options": [
+            "A) ARCH errors",
+            "B) Seasonality",
+            "C) Cointegration",
+            "D) Autoregressive model"
+        ],
+        "answer": "Option B",
+        "justification": "The presence of significant serial correlation at seasonal lags in a time series indicates seasonality."
+    },
+    {
+        "question": "How can seasonality in a time-series model be accounted for?",
+        "options": [
+            "A) By including a seasonal drift term",
+            "B) By including a seasonal autoregressive term",
+            "C) By including a seasonal moving-average term",
+            "D) By including a seasonal lag"
+        ],
+        "answer": "Option D",
+        "justification": "Seasonality in a time-series model can be accounted for by including a seasonal lag."
+    },
+    {
+        "question": "What are the limitations of ARMA models?",
+        "options": [
+            "A) Unstable parameters",
+            "B) Difficulty in determining AR and MA order",
+            "C) Potential poor forecasting performance",
+            "D) All of the above"
+        ],
+        "answer": "Option D",
+        "justification": "The limitations of ARMA models include unstable parameters, difficulty in determining the AR and MA order, and potential poor forecasting performance."
+    },
+    {
+        "question": "What does autoregressive conditional heteroskedasticity (ARCH) capture in a time-series model?",
+        "options": [
+            "A) Serial correlation",
+            "B) Seasonal correlation",
+            "C) Nonstationarity",
+            "D) Variance dependency"
+        ],
+        "answer": "Option D",
+        "justification": "Autoregressive conditional heteroskedasticity (ARCH) captures the dependency of the variance of the error term on previous errors in a time-series model."
+    },
+    {
+        "question": "How can first-order ARCH be tested in a time-series model?",
+        "options": [
+            "A) By testing for unit roots",
+            "B) By testing for seasonal correlations",
+            "C) By regressing squared residuals on squared residuals from the previous period",
+            "D) By comparing autocorrelations of the residuals"
+        ],
+        "answer": "Option C",
+        "justification": "First-order ARCH in a time-series model can be tested by regressing squared residuals on squared residuals from the previous period."
+    },
+    {
+        "question": "When should linear regression be used to analyze time-series variables?",
+        "options": [
+            "A) When all variables have unit roots",
+            "B) When the variables are cointegrated",
+            "C) When the variables have ARCH errors",
+            "D) When the variables are covariance stationary"
+        ],
+        "answer": "Option B",
+        "justification": "Linear regression should be used to analyze time-series variables when the variables are cointegrated."
+    },
+    {
+        "question": "How can cointegration be determined in time series?",
+        "options": [
+            "A) By testing for ARCH errors",
+            "B) By testing for autocorrelations",
+            "C) By testing for unit roots",
+            "D) By testing for seasonal correlations"
+        ],
+        "answer": "Option C",
+        "justification": "Cointegration in time series can be determined by testing for unit roots."
+    },
+    {
+        "question": "What can the Dickey-Fuller test determine for time series?",
+        "options": [
+            "A) Serial correlation",
+            "B) Seasonal correlation",
+            "C) Cointegration",
+            "D) Nonstationarity"
+        ],
+        "answer": "Option D",
+        "justification": "The Dickey-Fuller test can be used to determine whether time series are nonstationary."
+    }
+]

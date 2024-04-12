@@ -39,7 +39,7 @@ def get_gpt_response(q_prompt):
              {"role": "user", "content": q_prompt},
         ],
         max_tokens=10000,
-    stream=True,
+        stream=True,
     )
     text = ""
     for chunk in response:
@@ -50,66 +50,69 @@ def get_gpt_response(q_prompt):
 
 
 def parse_text_to_json(text):
-    print("text", text)
-    question_match = re.match(r'\s*(.*?)\s*(A\).*?D\).*?)\s*Answer: (Option [A-D])', text, re.DOTALL)
-    if question_match:
-        question, options, answer = question_match.groups()
-        options = [opt.strip() for opt in options.split('\n')]
-        answer = answer.strip()
+    question_pattern = r'(.+)\nA\)'
+    options_pattern = r'[A-D]\)[^\n]+'
+    answer_pattern = r'Answer: ([A-D]) with justification - (.+)'
+
+    # Extracting question, options, and answer
+    question_match = re.search(question_pattern, text)
+    options_match = re.findall(options_pattern, text)
+    answer_match = re.search(answer_pattern, text)
+
+    if question_match and options_match and answer_match:
+        question = question_match.group(1).strip()
+        options = [option.strip() for option in options_match]
+        answer = answer_match.group(1).strip()
+        justification = answer_match.group(2).strip()
+
+        return {
+            "question": question,
+            "options": options,
+            "answer": f"Option {answer}",
+            "justification": justification
+        }
     else:
         return None
-    
-    # Extract the justification if available
-    justification_match = re.search(r'with justification - (.+)', text)
-    justification = justification_match.group(1).strip() if justification_match else None
-    
-    # Format the options as a dictionary
-    formatted_options = {opt[0]: opt[3:].strip() for opt in options}
-    
-    # Format the output
-    output = {
-        "question": question.strip(),
-        "options": formatted_options,
-        "answer": answer,
-        "justification": justification
-    }
-    
-    return output
 
-
-def generate_mcq_json(mcqs):
+def generate_mcq_json(mcqs, topic_name):
     question_texts = re.split(r'\d+\.', mcqs)
-    print(question_texts)
     json_data = []
     for mcq in question_texts:
-        # input_string = "What is the difference between a linear trend model and a log-linear trend model?\n   A) The predicted trend value in a linear trend model is a constant amount, while in a log-linear trend model it grows at a constant rate.\n   B) The predicted trend value in a linear trend model is a constant rate, while in a log-linear trend model it grows by a constant amount.\n   C) The predicted trend value in a linear trend model is an exponential function, while in a log-linear trend model it is a linear function.\n   D) The predicted trend value in a linear trend model is a logarithmic function, while in a log-linear trend model it is a linear function.\n   Answer: Option A with justification - The summary states that a linear trend model predicts a constant amount of growth from period to period, while a log-linear trend model predicts a constant rate of growth.\n\n"
-        
         parsed_mcq = parse_text_to_json(mcq)
         if parsed_mcq:
             json_data.append(parsed_mcq)
+    filename = generate_filename(topic_name,"json")
+    save_summary_to_json(json_data, f"json_files/{filename}")
     return json.dumps(json_data, indent=4)
 
 
-def generate_mcqs(lo_text, summary_text, num_questions=50):
-    prompt = f"""Summary: {summary_text} and learning outcome: {lo_text}
-    you are given a paragraph which has summary. \n
-    You must create {num_questions} questions using it. you have to follow rules for generating question and those rules are -
-        1. Each question should have only 4 options
-        2. There should always be only one correct answer
-        3. Do not create "All of the above", "All the above/None of the above" option
-        4. Question and answer should be formatted as: 
-            1. Question?
-                A) Option 1
-                B) Option 2
-                C) Option 3
-                D) Option 4
-                Answer: Option x with justification
+def generate_mcqs(lo_text, summary_text, topic_name, num_questions=50):
+    prompt = f"""
+        As a professor tasked with building a quiz question bank from the given summary and learning outcomes, your primary objective is to draft {num_questions} questions adhering to specific guidelines. 
+        The summary you have is "{summary_text}" and the learning outcome is "{lo_text}."
+        For each question:
+        1. Each question must provide four options.
+        2. Only one option should be correct, without resorting to "All of the above" or "None of the above."
+        3. Structure questions and answers as follows:
+        1. Question?
+        A) Option 1
+        B) Option 2
+        C) Option 3
+        D) Option 4
+        Answer: Option x with justification
+        Please ensure that each answer is accompanied by a brief explanation, starting with "Answer:" followed by the correct option and "with justification - " followed by the rationale supporting the answer.
+        Example:
+        1. What is the capital of France?
+        A) London
+        B) Berlin
+        C) Paris
+        D) Madrid
+        Answer: C with justification - Paris is the capital of France, known for its iconic landmarks like the Eiffel Tower.
+        Now, using the provided summary and learning outcome, generate {num_questions} questions following these guidelines.
     """
-
     response = get_gpt_response(prompt)
 
-    ex_res = generate_mcq_json(response)
-    # print(ex_res)
+    ex_res = generate_mcq_json(response, topic_name)
     return ex_res
 
 
@@ -118,28 +121,39 @@ def formatText(text):
     data_single_line = " ".join(text.strip().splitlines())
     return ' '.join(data_single_line.split())
 
-def get_mcqs(title_name=""):
+def get_mcqs(title_name="", num_of_question=50):
     mcq_content = ""
     try:
         if len(title_name):
             result = get_learning_outcome_and_summary_text(title_name)
             lo_text, summary_text = result
-            res = generate_mcqs(formatText(lo_text), formatText(summary_text), 10)
-            # mcq_content = res.choices[0].text
+            res = generate_mcqs(formatText(lo_text), formatText(summary_text), title_name, num_of_question)
             return res
     except Exception as e:
         print(f"Error: {str(e)}")
     return mcq_content
 
-# def save_summary_to_md(mcq_content, file_path):
-#     with open(file_path, "w") as md_file:
-#         md_file.write(mcq_content)
+def save_summary_to_json(json_data, file_path):
+    directory = os.path.dirname(file_path)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    # Write JSON data to the file with specified indentation
+    with open(file_path, "w") as json_file:
+        json.dump(json_data, json_file, indent=4)
+    print("JSON data has been stored to:", file_path)
+
+def generate_filename(topic,filetype):
+    # Remove special characters and replace spaces with underscores
+    clean_topic = re.sub(r'[^a-zA-Z0-9\s]', '', topic)
+    filename = clean_topic.replace(' ', '_').lower() + f"_question_bank.{filetype}"
+    return filename
 
 def main():
     topics=['Time-Series Analysis','Machine Learning','Organizing, Visualizing, and Describing Data']
     for topic in topics:    
-        mcq_content = get_mcqs(topic)
-        # save_summary_to_md(mcq_content, f"md_files/{topic}_technical_summary.md")
+        mcq_content = get_mcqs("Organizing, Visualizing, and Describing Data", 50)
+        
         break
     print("Final", mcq_content)
 
