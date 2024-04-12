@@ -3,9 +3,12 @@ boto3
 uvicorn
 python-multipart
 requests
-# sqlalchemy
+openai
+langchain
+pinecone-client
 python-dotenv
 # snowflake-sqlalchemy
 sqlalchemy==1.4.51
 snowflake-sqlalchemy==1.5.1
 pandas
+pydantic
