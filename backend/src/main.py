@@ -1,3 +1,4 @@
+import json
 import os
 import logging
 from fastapi import FastAPI, Path, HTTPException
@@ -91,8 +92,10 @@ def get_qa_data(topic_name: str = Path(...), set_name: str = Path(...)):
 
 
 @app.post("/get_answer_by_gpt_with_pc_summary_context")
-def get_answer_by_gpt_with_pc_summary_context(req_data: ReqData):
+def get_answer_by_gpt_with_pc_summary_context(req_data: ReqData, answer_in_markdown_text=True):
+    result = {"markdown_text": "", "answer": None}
     try:
+        # print(req_data)
         question_dict = req_data.question
         topic = req_data.topic
         question_markdown_text = gen_markdown_from_question(question_dict)
@@ -100,12 +103,18 @@ def get_answer_by_gpt_with_pc_summary_context(req_data: ReqData):
             question_markdown_text, topic)
         logger.info(
             f"Answer by GPT with PC summary context: {answer_instance}")
-        answer_markdown_text = gen_markdown_from_Answer(answer_instance)
-        return {"markdown_text": answer_markdown_text}
+        if answer_in_markdown_text:
+            answer_markdown_text = gen_markdown_from_Answer(
+                answer_instance)
+            result["markdown_text"] = answer_markdown_text
+        else:
+            result['answer'] = answer_instance
+        # result["markdown_text"] = answer_markdown_text
     except Exception as e:
         logger.error(
             f"Error fetching answer by GPT with PC summary context: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
+    return result
 
 
 @app.post("/get_answer_by_gpt_with_pc_qa_context")
@@ -121,12 +130,43 @@ def get_answer_by_gpt_with_pc_qa_context(req_data: ReqData, answer_in_markdown_t
         logger.info(f"Answer by GPT with PC QA context: {answer_instance}")
         if answer_in_markdown_text:
             answer_markdown_text = gen_markdown_from_Answer(answer_instance)
-            result = {"markdown_text": answer_markdown_text}
+            result["markdown_text"] = answer_markdown_text
         else:
-            result = {'answer': answer_instance}
+            result['answer'] = answer_instance
     except Exception as e:
         print(str(e))
         logger.error(
             f"Error fetching answer by GPT with PC QA context: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
     return result
+
+@app.get("/answer_stats/{based}")
+def get_answer_stats(based: str):
+    try:
+        folder_path = "backend/results/"
+        if based == "qa_based":
+            file_path = os.path.join(folder_path, 'results.json')
+        elif based == "summary_based":
+            file_path = os.path.join(folder_path, 'sum_results.json')
+        with open(file_path, "r") as f:
+            data = json.load(f)
+        total_answers = len(data)
+        correct_answers = sum(question["is_correct"] for question in data)
+        wrong_answers = total_answers - correct_answers
+        return {
+            "total_answers": total_answers,
+            "correct_answers": correct_answers,
+            "wrong_answers": wrong_answers,
+        }
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="results.json not found")
+    except json.JSONDecodeError:
+        raise HTTPException(
+            status_code=500, detail="Error parsing results.json")
+    except KeyError as e:
+        raise HTTPException(
+            status_code=500, detail=f"Missing key in results.json: {e}")
+    except TypeError as e:
+        raise HTTPException(status_code=500, detail=f"Type error: {e}")
+
+

@@ -152,6 +152,7 @@ def get_answer_by_gpt_vector_from_pc(query, topic_name='Time-Series-Analysis'):
         filename = generate_filename(topic_name, 'json', '_', 'B')
         namespace_name = filename.split(".")[0]
         q_prompt = retrieve(query, namespace_name, 'cfa-articles-qa')
+        print(q_prompt)
         response = get_gpt_response(q_prompt)
         summary_content = ""
         answer_instance: Answer()  # type: ignore

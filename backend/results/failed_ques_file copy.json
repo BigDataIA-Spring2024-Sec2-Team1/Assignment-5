@@ -1,0 +1,431 @@
+[
+    {
+        "question": "What does it mean for a time series to be mean reverting?",
+        "options": [
+            "A) The time series tends to fall when its level is above its long-run mean and rise when its level is below its long-run mean.",
+            "B) The time series tends to exhibit a constant growth rate.",
+            "C) The time series exhibits significant serial correlation.",
+            "D) The time series has a unit root."
+        ],
+        "answer": "Option A",
+        "justification": "A time series is mean reverting if it tends to fall when its level is above its long-run mean and rise when its level is below its long-run mean."
+    },
+    {
+        "question": "What is a key limitation of coefficients in time-series models?",
+        "options": [
+            "A) They are often unstable across different sample periods.",
+            "B) They do not account for nonstationarity of the time series.",
+            "C) They are directly affected by residuals in the model.",
+            "D) They are only valid for log-linear trend models."
+        ],
+        "answer": "Option A",
+        "justification": "A key limitation of coefficients in time-series models is that they are often unstable across different sample periods."
+    },
+    {
+        "question": "How can a time series with a unit root be transformed for analysis with an AR model?",
+        "options": [
+            "A) By adding a seasonal lag to the AR model.",
+            "B) By calculating the autocorrelations of the residuals.",
+            "C) By first-differencing the time series.",
+            "D) By using a log-linear trend model."
+        ],
+        "answer": "Option C",
+        "justification": "A time series with a unit root can be transformed for analysis with an AR model by first-differencing the time series."
+    },
+    {
+        "question": "What is an n-period moving average of a time series xt?",
+        "options": [
+            "A) The sum of the current and past (n-1) values of the time series, divided by n.",
+            "B) The sum of the next (n+1) values of the time series, divided by n.",
+            "C) The sum of the squared residuals of the time series, divided by n.",
+            "D) The sum of the lagged values of an AR model, divided by n."
+        ],
+        "answer": "Option A",
+        "justification": "An n-period moving average of a time series xt is calculated as [xt + xt \u22121 + . . . + xt \u2212( n \u22121)]/n."
+    },
+    {
+        "question": "What does significant serial correlation of the error term at seasonal lags indicate in a time series?",
+        "options": [
+            "A) The time series has significant seasonality.",
+            "B) The time series is covariance stationary.",
+            "C) The time series has a unit root.",
+            "D) The time series is mean reverting."
+        ],
+        "answer": "Option A",
+        "justification": "If the error term of a time-series model shows significant serial correlation at seasonal lags, it indicates that the time series has significant seasonality."
+    },
+    {
+        "question": "How can an AR model with a seasonal lag be used for forecasting?",
+        "options": [
+            "A) By calculating the first-q autocorrelations of the time series.",
+            "B) By adding a term lagged four quarters to an AR(1) model.",
+            "C) By first-differencing the time series.",
+            "D) By estimating the ARMA model order."
+        ],
+        "answer": "Option B",
+        "justification": "An AR model with a seasonal lag can be used for forecasting by adding a term lagged four quarters to an AR(1) model on quarterly observations."
+    },
+    {
+        "question": "What is autoregressive conditional heteroskedasticity (ARCH) in time-series analysis?",
+        "options": [
+            "A) A model that uses residuals of a time series to predict its current value.",
+            "B) A model that accounts for the variability of the error term over time.",
+            "C) A test for the presence of unit roots in a time series.",
+            "D) A method for correcting seasonality in a time-series model."
+        ],
+        "answer": "Option B",
+        "justification": "Autoregressive conditional heteroskedasticity (ARCH) in time-series analysis refers to a model that accounts for the variability of the error term over time."
+    },
+    {
+        "question": "When can linear regression be used to model the relationship between two time series?",
+        "options": [
+            "A) When both time series have a unit root.",
+            "B) When both time series are covariance stationary.",
+            "C) When either time series has a unit root.",
+            "D) When either time series is mean reverting."
+        ],
+        "answer": "Option B",
+        "justification": "Linear regression can be used to model the relationship between two time series when both time series are covariance stationary."
+    },
+    {
+        "question": "What can be concluded if a time series has a unit root and is cointegrated with another time series?",
+        "options": [
+            "A) Linear regression should not be used to model the relationship.",
+            "B) Linear regression can be safely used to model the relationship.",
+            "C) The time series is mean reverting.",
+            "D) The time series is covariance stationary."
+        ],
+        "answer": "Option B",
+        "justification": "If a time series has a unit root and is cointegrated with another time series, linear regression can be safely used to model the relationship."
+    },
+    {
+        "question": "How can the predicted trend value for a time series be evaluated in a linear trend model?",
+        "options": [
+            "A) By examining the residuals of the model.",
+            "B) By calculating the autocorrelations of the time series.",
+            "C) By comparing the fitted values to the observed values.",
+            "D) By estimating the AR model order."
+        ],
+        "answer": "Option C",
+        "justification": "The predicted trend value for a time series in a linear trend model can be evaluated by comparing the fitted values to the observed values."
+    },
+    {
+        "question": "What condition must a time series satisfy to be considered covariance stationary?",
+        "options": [
+            "A) The expected value must be constant and finite in all periods.",
+            "B) The variance must be constant and finite in all periods.",
+            "C) The covariance with itself for a fixed number of periods in the past or future must be constant and finite in all periods.",
+            "D) All of the above"
+        ],
+        "answer": "Option D",
+        "justification": "A time series must satisfy all three conditions of constant and finite expected value, variance, and covariance to be considered covariance stationary."
+    },
+    {
+        "question": "What does it mean if the time series is covariance stationary?",
+        "options": [
+            "A) It will be mean reverting.",
+            "B) It follows a log-linear trend.",
+            "C) It exhibits significant serial correlation.",
+            "D) It has a unit root."
+        ],
+        "answer": "Option A",
+        "justification": "If a time series is covariance stationary, it will be mean reverting."
+    },
+    {
+        "question": "How is the root mean squared error (RMSE) used to compare forecast accuracy of different time-series models?",
+        "options": [
+            "A) A smaller RMSE implies greater forecast accuracy.",
+            "B) A larger RMSE implies greater forecast accuracy.",
+            "C) The RMSE is not a reliable criterion for comparing forecast accuracy.",
+            "D) The RMSE is only applicable for linear trend models."
+        ],
+        "answer": "Option A",
+        "justification": "The root mean squared error (RMSE) is a criterion for comparing forecast accuracy of different time-series models, where a smaller RMSE implies greater forecast accuracy."
+    },
+    {
+        "question": "What is a key limitation of coefficients in time-series models?",
+        "options": [
+            "A) They are often unstable across different sample periods.",
+            "B) They do not account for nonstationarity of the time series.",
+            "C) They are directly affected by residuals in the model.",
+            "D) They are only valid for log-linear trend models."
+        ],
+        "answer": "Option A",
+        "justification": "A key limitation of coefficients in time-series models is that they are often unstable across different sample periods."
+    },
+    {
+        "question": "How can a time series with a unit root be transformed for analysis with an AR model?",
+        "options": [
+            "A) By adding a seasonal lag to the AR model.",
+            "B) By calculating the autocorrelations of the residuals.",
+            "C) By first-differencing the time series.",
+            "D) By using a log-linear trend model."
+        ],
+        "answer": "Option C",
+        "justification": "A time series with a unit root can be transformed for analysis with an AR model by first-differencing the time series."
+    },
+    {
+        "question": "How can autoregressive time series be distinguished from moving-average time series?",
+        "options": [
+            "A) Autoregressive time series have large and gradually declining autocorrelations, while moving-average time series have sudden drops to zero after the first q autocorrelations.",
+            "B) Autoregressive time series have zero autocorrelations at all lags, while moving-average time series have nonzero autocorrelations at all lags.",
+            "C) Autoregressive time series have a constant growth rate, while moving-average time series exhibit significant serial correlation.",
+            "D) Autoregressive time series have a moving average component, while moving-average time series have an autoregressive component."
+        ],
+        "answer": "Option A",
+        "justification": "Autoregressive time series can be distinguished from moving-average time series by their autocorrelation patterns. Autoregressive time series have large and gradually declining autocorrelations, while moving-average time series have sudden drops to zero after the first q autocorrelations."
+    },
+    {
+        "question": "What does significant serial correlation of the error term at seasonal lags indicate in a time series?",
+        "options": [
+            "A) The time series has significant seasonality.",
+            "B) The time series is covariance stationary.",
+            "C) The time series has a unit root.",
+            "D) The time series is mean reverting."
+        ],
+        "answer": "Option A",
+        "justification": "If the error term of a time-series model shows significant serial correlation at seasonal lags, it indicates that the time series has significant seasonality."
+    },
+    {
+        "question": "What is autoregressive conditional heteroskedasticity (ARCH) in time-series analysis?",
+        "options": [
+            "A) A model that uses residuals of a time series to predict its current value.",
+            "B) A model that accounts for the variability of the error term over time.",
+            "C) A test for the presence of unit roots in a time series.",
+            "D) A method for correcting seasonality in a time-series model."
+        ],
+        "answer": "Option B",
+        "justification": "Autoregressive conditional heteroskedasticity (ARCH) in time-series analysis refers to a model that accounts for the variability of the error term over time."
+    },
+    {
+        "question": "When can linear regression be used to model the relationship between two time series?",
+        "options": [
+            "A) When both time series have a unit root.",
+            "B) When both time series are covariance stationary.",
+            "C) When either time series has a unit root.",
+            "D) When either time series is mean reverting."
+        ],
+        "answer": "Option B",
+        "justification": "Linear regression can be used to model the relationship between two time series when both time series are covariance stationary."
+    },
+    {
+        "question": "How is the relative frequency of observations in a bin calculated?",
+        "options": [
+            "A) By dividing the number of observations in the bin by the total number of observations",
+            "B) By dividing the total number of observations by the number of observations in the bin",
+            "C) By multiplying the number of observations in the bin by the total number of observations",
+            "D) By subtracting the number of observations in the bin from the total number of observations"
+        ],
+        "answer": "Option A",
+        "justification": "The relative frequency of observations in a bin is calculated by dividing the number of observations in the bin by the total number of observations."
+    },
+    {
+        "question": "How is a frequency polygon different from a histogram?",
+        "options": [
+            "A) A frequency polygon is used for categorical data, while a histogram is used for numerical data",
+            "B) A frequency polygon uses lines to connect midpoints of bars in a histogram",
+            "C) A frequency polygon displays the cumulative relative frequency, while a histogram does not",
+            "D) A frequency polygon is used for one variable, while a histogram can display multiple variables simultaneously"
+        ],
+        "answer": "Option B",
+        "justification": "A frequency polygon uses lines to connect successive midpoints of bars representing class frequencies in a histogram."
+    },
+    {
+        "question": "How is a tree-map used in data visualization?",
+        "options": [
+            "A) To organize and label data for analysis",
+            "B) To present the correlations between multiple variables",
+            "C) To summarize and classify textual data",
+            "D) To display categorical data using colored rectangles"
+        ],
+        "answer": "Option D",
+        "justification": "A tree-map is a graphical tool used to display categorical data by representing distinct groups with colored rectangles, with the area of each rectangle proportional to the value of the corresponding group."
+    },
+    {
+        "question": "How is a scatter plot matrix different from a regular scatter plot?",
+        "options": [
+            "A) A scatter plot matrix displays scatter plots between pairs of variables",
+            "B) A scatter plot matrix visualizes the joint variation of categorical data",
+            "C) A scatter plot matrix is used for displaying the frequency distribution of categorical data",
+            "D) A scatter plot matrix is used for visualizing the change of data series over time"
+        ],
+        "answer": "Option A",
+        "justification": "A scatter plot matrix organizes scatter plots between pairs of variables into a matrix format, allowing inspection of all pairwise relationships between more than two variables in one combined visual."
+    },
+    {
+        "question": "What is the key consideration when selecting among chart types?",
+        "options": [
+            "A) The number of variables to be visualized",
+            "B) The complexity of the data analysis required",
+            "C) The purpose of visualizing the data",
+            "D) The size of the dataset"
+        ],
+        "answer": "Option C",
+        "justification": "The key consideration when selecting among chart types is the intended purpose of visualizing the data, whether it is for exploring/presenting distributions or relationships or for making comparisons."
+    },
+    {
+        "question": "How is a population defined?",
+        "options": [
+            "A) All members of a specified group",
+            "B) A subset of a population",
+            "C) Any descriptive measure of a population",
+            "D) A quantity computed from a sample"
+        ],
+        "answer": "Option A",
+        "justification": "A population is defined as all members of a specified group that is being studied or analyzed."
+    },
+    {
+        "question": "How is the target downside deviation calculated?",
+        "options": [
+            "A) By taking the square root of the average squared deviations from the target",
+            "B) By summing the absolute deviations and dividing by the number of observations",
+            "C) By dividing the number of observations in a bin by the total number of observations",
+            "D) By computing the average squared deviations from the target using only observations below the target"
+        ],
+        "answer": "Option D",
+        "justification": "The target downside deviation is calculated by computing the average squared deviations from the target using only observations below the target, providing a measure of the risk of being below a given target."
+    },
+    {
+        "question": "What issues can arise when evaluating correlation?",
+        "options": [
+            "A) Presence of outliers and spurious correlation",
+            "B) Inclusion of extreme values in the dataset",
+            "C) Skewness and kurtosis of the distribution",
+            "D) Range and median of the dataset"
+        ],
+        "answer": "Option A",
+        "justification": "Issues that can arise when evaluating correlation include the presence of outliers, which can distort the relationship, and spurious correlation, which can occur due to unrelated factors influencing both variables."
+    },
+    {
+        "question": "Which measure of central tendency is most appropriate for nominal data?",
+        "options": [
+            "A) Mean",
+            "B) Median",
+            "C) Mode",
+            "D) Variance"
+        ],
+        "answer": "Option C",
+        "justification": "The mode is the most appropriate measure of central tendency for nominal data, as it represents the most frequently observed value in the dataset."
+    },
+    {
+        "question": "Which measure of dispersion is scale-free and can be used for direct comparisons?",
+        "options": [
+            "A) Variance",
+            "B) Range",
+            "C) Mean absolute deviation",
+            "D) Coefficient of variation"
+        ],
+        "answer": "Option D",
+        "justification": "The coefficient of variation is scale-free because it is the ratio of the standard deviation to the mean, allowing direct comparisons of dispersion across different datasets without being influenced by the units of measurement."
+    },
+    {
+        "question": "What does generalization describe in machine learning?",
+        "options": [
+            "A) The model's explanatory power",
+            "B) The model's accuracy on test data",
+            "C) The model's fit to the training data",
+            "D) The model's ability to predict out-of-sample"
+        ],
+        "answer": "Option D",
+        "justification": "Generalization describes the degree to which an ML model retains its explanatory power when predicting out-of-sample."
+    },
+    {
+        "question": "What is the main objective of support vector machine (SVM)?",
+        "options": [
+            "A) To seek the optimal hyperplane",
+            "B) To maximize the margin between data points",
+            "C) To minimize the misclassification rate",
+            "D) All of the above"
+        ],
+        "answer": "Option D",
+        "justification": "The main objective of support vector machine (SVM) is to seek the optimal hyperplane and maximize the margin between data points."
+    },
+    {
+        "question": "What is hierarchical clustering used for?",
+        "options": [
+            "A) Building a hierarchy of clusters",
+            "B) Reducing statistical variability in data estimation",
+            "C) Analyzing high-dimensional data",
+            "D) Classifying observations into discrete groups"
+        ],
+        "answer": "Option A",
+        "justification": "Hierarchical clustering is used to build a hierarchy of clusters."
+    },
+    {
+        "question": "What is the objective of K-means clustering?",
+        "options": [
+            "A) To minimize the sum of squared distances between observations and cluster centroids",
+            "B) To maximize the margin between clusters",
+            "C) To classify observations into discrete groups",
+            "D) To optimize the performance of a neural network"
+        ],
+        "answer": "Option A",
+        "justification": "The objective of K-means clustering is to minimize the sum of squared distances between observations and cluster centroids."
+    },
+    {
+        "question": "Which unsupervised machine learning algorithm partitions observations into non-overlapping clusters?",
+        "options": [
+            "A) Principal components analysis (PCA)",
+            "B) K-means clustering",
+            "C) Hierarchical clustering",
+            "D) Neural networks"
+        ],
+        "answer": "Option B",
+        "justification": "K-means clustering is the unsupervised machine learning algorithm that partitions observations into non-overlapping clusters."
+    },
+    {
+        "question": "What is the main objective of agglomerative hierarchical clustering?",
+        "options": [
+            "A) To combine clusters into larger ones",
+            "B) To progressively partition clusters into smaller ones",
+            "C) To reduce the dimensionality of the dataset",
+            "D) To create decision nodes in a decision tree"
+        ],
+        "answer": "Option A",
+        "justification": "The main objective of agglomerative hierarchical clustering is to combine clusters into larger ones."
+    },
+    {
+        "question": "What is the maximum number of decision nodes in a binary CART?",
+        "options": [
+            "A) 1",
+            "B) 2",
+            "C) 3",
+            "D) Unlimited"
+        ],
+        "answer": "Option B",
+        "justification": "The maximum number of decision nodes in a binary CART is"
+    },
+    {
+        "question": "What does an ensemble learning technique aim to achieve?",
+        "options": [
+            "A) More accurate predictions",
+            "B) More stable predictions",
+            "C) Both A and B",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "Ensemble learning techniques aim to achieve both more accurate and more stable predictions."
+    },
+    {
+        "question": "How does a random forest classifier generate multiple decision trees?",
+        "options": [
+            "A) By applying a bagging method",
+            "B) By reducing the number of available features",
+            "C) By transforming the features using PCA",
+            "D) By iteratively partitioning the data"
+        ],
+        "answer": "Option A",
+        "justification": "A random forest classifier generates multiple decision trees by applying a bagging method."
+    },
+    {
+        "question": "What advantage do deep neural networks (DNNs) have over standard neural networks?",
+        "options": [
+            "A) They can handle more complex tasks",
+            "B) They require fewer hidden layers",
+            "C) They have lower computational requirements",
+            "D) They have simpler architectures"
+        ],
+        "answer": "Option A",
+        "justification": "Deep neural networks (DNNs) can handle more complex tasks due to their greater number of hidden layers."
+    }
+]

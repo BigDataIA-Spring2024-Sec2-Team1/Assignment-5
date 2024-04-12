@@ -1,0 +1,21 @@
+[
+    {
+        "question": {
+            "question": "What is the predicted trend value of a time series in a linear trend model?",
+            "options": [
+                "A) \u2038b0+\u2038b1b\u20380+b\u20381 t",
+                "B) e\u2038b0+\u2038b1teb\u20380+b\u20381t",
+                "C) xt = b 0 + b 1 xt \u22121 + b 2 xt \u22122 + . . . + bpxt \u2013 p + \u03b5 t",
+                "D) [xt + xt \u22121 + . . . + xt \u2212( n \u22121)]/n"
+            ]
+        },
+        "topic": "timeseries",
+        "result": {
+            "Answer": "A",
+            "Justification": "In a linear trend model, the predicted trend value is typically represented as b0 + b1*t, where b0 is the intercept and b1 is the slope coefficient that captures the trend over time."
+        },
+        "expected_answer": "A",
+        "generated_answer": "A",
+        "is_correct": true
+    }
+]

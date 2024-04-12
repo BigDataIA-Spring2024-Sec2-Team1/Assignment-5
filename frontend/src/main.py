@@ -3,6 +3,8 @@ import streamlit as st
 import warnings
 from utility import *
 from os import path
+import pandas as pd
+import plotly.express as px
 from streamlit.logger import get_logger
 
 warnings.filterwarnings("ignore")
@@ -126,14 +128,77 @@ def Answer_by_summary_vectors():
             logger.error(f"Error getting answer by RAG methodology: {str(e)}")
 
 
+def answer_stats_qa_based():
+    answer_stats(baesd="qa_based")
+
+
+def answer_stats_summary_based():
+    answer_stats(baesd="summary_based")
+
+
+def answer_stats(baesd="qa_based"):
+    st.title("Knowledge Base Answer Statistics")
+
+    answer_stats_qa_based = fetch_answer_stats(baesd)
+
+    if answer_stats_qa_based is not None:
+        df = pd.DataFrame({"Category": ["Correct", "Wrong"], "Count": [
+                          answer_stats_qa_based["correct_answers"], answer_stats_qa_based["wrong_answers"]]})
+
+        fig = px.bar(df, x="Category", y="Count", color="Category", title="Answer Distribution",
+                     color_discrete_map={"Correct": "green", "Wrong": "red"})
+        st.plotly_chart(fig)
+
+        st.metric("Total Answers", answer_stats_qa_based["total_answers"])
+    else:
+        st.write("Failed to retrieve data.")
+
+    answer_stats_summary_based = fetch_answer_stats(baesd)
+
+    # if answer_stats_summary_based is not None:
+    #     df = pd.DataFrame({"Category": ["Correct", "Wrong"], "Count": [
+    #                       answer_stats_summary_based["correct_answers"], answer_stats_summary_based["wrong_answers"]]})
+
+    #     fig = px.bar(df, x="Category", y="Count", color="Category", title="Answer Distribution",
+    #                  color_discrete_map={"Correct": "green", "Wrong": "red"})
+    #     st.plotly_chart(fig)
+
+    #     st.metric("Total Answers", answer_stats_summary_based["total_answers"])
+    # else:
+    #     st.write("Failed to retrieve data.")
+
+
 def home_page():
     pages = {
         "Knowledge summary": knowledge_summary,
         "Knowledge base Q/A": Knowledge_base_QA,
         "Find answer by vector database": Answer_by_qa_vector,
-        "Find answer by knowledge summary": Answer_by_summary_vectors
+        "Find answer by knowledge summary": Answer_by_summary_vectors,
+        "Knowledge Base Performance QA Based": answer_stats_qa_based,
+        "Knowledge Base Performance Summary Based": answer_stats_summary_based
     }
-    selected_page = st.sidebar.selectbox("Select Page", list(pages.keys()))
+    st.markdown(
+        """
+        <style>
+            .sidebar .sidebar-content {
+                padding-top: 2rem;
+                padding-bottom: 10rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .stTabs > div[role="tablist"] > .stTab {
+                flex: 1;
+            }
+            .stTabs > div[role="tablist"] {
+                display: flex;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # selected_page = st.sidebar.selectbox("Select Page", list(pages.keys()))
+    selected_page = st.sidebar.radio("", list(pages.keys()))
     if selected_page:
         pages[selected_page]()
 

@@ -76,3 +76,15 @@ def display_question(question):
     ]
     markdown_text = "\n".join(markdown_lines)
     return markdown_text
+
+
+def fetch_answer_stats(based="qa_based"):
+    try:
+        print("here")
+        response = requests.get(f"http://backend:8000/answer_stats/{based}")
+        response.raise_for_status()
+        data = response.json()
+        return data
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data: {e}")
+        return None

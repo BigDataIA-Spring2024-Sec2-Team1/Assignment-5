@@ -2,3 +2,4 @@ streamlit
 sqlalchemy
 python-dotenv
 pydantic
+plotly
