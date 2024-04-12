@@ -2,7 +2,7 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
-from pinecone import Pinecone,ServerlessSpec
+from pinecone import Pinecone, ServerlessSpec
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import string
 import random
@@ -29,6 +29,7 @@ def chunk_and_embed(data):
     )
     return chunks, embeddings
 
+
 def create_index(index_name='cfa-articles-summary'):
 
     # # Check whether the index with the same name already exists - if so, delete it
@@ -49,6 +50,8 @@ def create_index(index_name='cfa-articles-summary'):
         )
 
 # Function to upsert data into Pinecone
+
+
 def upsert_into_pinecone(namespace, data_chunks, embeddings):
     embedding_to_upsert = []
     for i, chunk in enumerate(data_chunks):
@@ -95,11 +98,12 @@ def get_summary_and_upsert(topic):
 def main():
     try:
         topics = ['Time-Series Analysis', 'Machine Learning',
-                'Organizing, Visualizing, and Describing Data']
+                  'Organizing, Visualizing, and Describing Data']
         for topic in topics:
             get_summary_and_upsert(topic)
     except Exception as e:
         print(e)
+
 
 if __name__ == "__main__":
     main()

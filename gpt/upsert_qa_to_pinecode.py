@@ -3,13 +3,10 @@ import os
 import re
 from openai import OpenAI
 from dotenv import load_dotenv
-
 from pinecone import Pinecone, ServerlessSpec
-
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import string
 import random
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -63,9 +60,10 @@ def upsert_into_pinecone(index_name, namespace_name, data_chunks, embeddings):
                                    'values': embeddings.data[i].embedding, 'metadata': {'text': chunk}})
     try:
         index = pinecone_client.Index('cfa-articles-qa')
-        index.upsert(vectors=list(embedding_to_upsert), namespace=namespace_name)
+        index.upsert(vectors=list(embedding_to_upsert),
+                     namespace=namespace_name)
         # pinecone_client.index.upsert(
-            # index_name=index_name, vectors=embedding_to_upsert, namespace=namespace_name)
+        # index_name=index_name, vectors=embedding_to_upsert, namespace=namespace_name)
     except Exception as e:
         print(f"Error occurred while upserting into Pinecone: {e}")
 
@@ -73,7 +71,8 @@ def upsert_into_pinecone(index_name, namespace_name, data_chunks, embeddings):
 def generate_filename(topic, filetype, separator='_'):
     # Remove special characters and replace spaces with underscores
     clean_topic = re.sub(r'[^a-zA-Z0-9\s]', '', topic)
-    filename = clean_topic.replace(' ', separator).lower() + f"_technical_qa.{filetype}"
+    filename = clean_topic.replace(
+        ' ', separator).lower() + f"_technical_qa.{filetype}"
     return filename
 
 
@@ -117,7 +116,7 @@ def get_question_and_upsert(topic, set='A'):
                         qa_chunks, embeddings = chunk_and_embed(markdown_text)
                         filename = filename.split(".")[0]
                         # Upsert embeddings into Pinecone
-                       
+
                         upsert_into_pinecone('cfa-articles-qa',
                                              f'{filename}-set{set}', qa_chunks, embeddings)
                     except Exception as e:
@@ -132,7 +131,7 @@ def main():
     topics = ['Time-Series Analysis', 'Machine Learning',
               'Organizing, Visualizing, and Describing Data']
     for topic in topics:
-        get_question_and_upsert(topic,'B')
+        get_question_and_upsert(topic, 'B')
         # break
 
 
