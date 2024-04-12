@@ -14,8 +14,8 @@ Open API GPT
 ## Project Structure
 ```
 .
-├── README.md
 ├── Dockerfile
+├── README.md
 ├── backend
 │   ├── Dockerfile
 │   ├── __init__.py
@@ -24,17 +24,6 @@ Open API GPT
 │   │   └── main.cpython-39.pyc
 │   ├── main.py
 │   └── requirements.txt
-├── config
-│   ├── Assignment5streamlit_3.py
-│   ├── README.md
-│   └── main.py
-├── dags
-│   ├── processor
-│   ├── tasks
-│   │   ├── __init__.py
-│   │   └── util
-│   │       └── __init__.py
-│   └── workflow.py
 ├── diagrams
 │   ├── __init__.py
 │   └── diagram.py
