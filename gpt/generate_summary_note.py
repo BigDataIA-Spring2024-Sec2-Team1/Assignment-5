@@ -34,7 +34,7 @@ def generate_technical_notes(learning_outcome, summary):
 def get_learning_outcome_and_summary_text(title_value='Time-Series Analysis'):
     result = []
     try:
-        file_path = 'refresher_readings.csv'  # Replace 'example.csv' with the path to your CSV file
+        file_path = 'refresher_readings.csv' 
         column_name = 'Learning Outcomes'  
         title_column_name = 'Title'
         lo_text = read_text_from_csv(file_path, title_column_name, column_name, title_value)
@@ -58,16 +58,23 @@ def get_technical_note_summary(title_name=""):
     return summary_content
 
 def save_summary_to_md(summary_content, file_path):
-    with open(file_path, "w") as md_file:
-        md_file.write(summary_content)
+    try:
+        directory = os.path.dirname(file_path)
+        if not os.path.exists(directory):
+            print("heheh")
+            os.makedirs(directory)
+        with open(file_path, "w") as md_file:
+            md_file.write(summary_content)
+    except Exception as e:
+        print(f"Error: {str(e)}")
 
-# def main():
-#     topics=['Time-Series Analysis','Machine Learning','Organizing, Visualizing, and Describing Data']
-#     for topic in topics:    
-#         summary_content = get_technical_note_summary(topic)
-#         save_summary_to_md(summary_content, f"md_files/{topic}_technical_summary.md")
-#         break
-#     print(summary_content)
+def main():
+    topics=['Time-Series Analysis','Machine Learning','Organizing, Visualizing, and Describing Data']
+    for topic in topics:    
+        summary_content = get_technical_note_summary(topic)
+        save_summary_to_md(summary_content, f"md_files/{topic}_technical_summary.md")
+        # break
+    # print(summary_content)
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()

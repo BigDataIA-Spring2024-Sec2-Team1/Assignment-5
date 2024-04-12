@@ -20,7 +20,7 @@ def read_text_from_csv(file_path, title_column_name, column_name, title_value):
 def get_learning_outcome_and_summary_text(title_value='Time-Series Analysis'):
     result = []
     try:
-        file_path = 'refresher_readings.csv'  # Replace 'example.csv' with the path to your CSV file
+        file_path = 'refresher_readings.csv' 
         column_name = 'Learning Outcomes'  
         title_column_name = 'Title'
         lo_text = read_text_from_csv(file_path, title_column_name, column_name, title_value)
@@ -86,7 +86,7 @@ def generate_mcq_json(mcqs, topic_name):
     return json.dumps(json_data, indent=4)
 
 
-def generate_mcqs(lo_text, summary_text, topic_name, num_questions=50):
+def generate_mcqs(topic_name,lo_text, summary_text, num_questions=50):
     prompt = f"""
         As a professor tasked with building a quiz question bank from the given summary and learning outcomes, your primary objective is to draft {num_questions} questions adhering to specific guidelines. 
         The summary you have is "{summary_text}" and the learning outcome is "{lo_text}."
@@ -121,13 +121,13 @@ def formatText(text):
     data_single_line = " ".join(text.strip().splitlines())
     return ' '.join(data_single_line.split())
 
-def get_mcqs(title_name="", num_of_question=50):
+def get_mcqs(topic_name="", num_of_question=50):
     mcq_content = ""
     try:
-        if len(title_name):
-            result = get_learning_outcome_and_summary_text(title_name)
+        if len(topic_name):
+            result = get_learning_outcome_and_summary_text(topic_name)
             lo_text, summary_text = result
-            res = generate_mcqs(formatText(lo_text), formatText(summary_text), title_name, num_of_question)
+            res = generate_mcqs(topic_name,formatText(lo_text), formatText(summary_text), num_of_question)
             return res
     except Exception as e:
         print(f"Error: {str(e)}")
@@ -142,20 +142,19 @@ def save_summary_to_json(json_data, file_path):
     with open(file_path, "w") as json_file:
         json.dump(json_data, json_file, indent=4)
     print("JSON data has been stored to:", file_path)
-
+    
 def generate_filename(topic,filetype):
     # Remove special characters and replace spaces with underscores
     clean_topic = re.sub(r'[^a-zA-Z0-9\s]', '', topic)
-    filename = clean_topic.replace(' ', '_').lower() + f"_question_bank.{filetype}"
+    filename = clean_topic.replace(' ', '_').lower() + f"_technical_qa.{filetype}"
     return filename
 
 def main():
     topics=['Time-Series Analysis','Machine Learning','Organizing, Visualizing, and Describing Data']
     for topic in topics:    
-        mcq_content = get_mcqs("Organizing, Visualizing, and Describing Data", 50)
-        
-        break
-    print("Final", mcq_content)
+        mcq_content = get_mcqs(topic, 50)
+        # break
+    # print("Final", mcq_content)
 
 if __name__ == "__main__":
     main()

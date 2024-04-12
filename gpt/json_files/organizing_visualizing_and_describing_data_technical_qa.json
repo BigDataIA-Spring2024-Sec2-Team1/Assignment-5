@@ -1,0 +1,554 @@
+[
+    {
+        "question": "What is data?",
+        "options": [
+            "A) Collection of numbers, characters, words, and text",
+            "B) Pictures and videos",
+            "C) Raw materials",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Data can be defined as a collection of numbers, characters, words, and text used to represent facts or information."
+    },
+    {
+        "question": "How can data be classified based on statistical perspective?",
+        "options": [
+            "A) Numerical and categorical data",
+            "B) Structured and unstructured data",
+            "C) Time-series and cross-sectional data",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Data can be classified as numerical data (quantitative data) and categorical data (qualitative data) based on their characteristics."
+    },
+    {
+        "question": "What are numerical data?",
+        "options": [
+            "A) Values that describe a quality or characteristic of a group",
+            "B) Values that represent measured or counted quantities as a number",
+            "C) Images, audio, and video data",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "Numerical data are values that represent measured or counted quantities as a number."
+    },
+    {
+        "question": "What are categorical data?",
+        "options": [
+            "A) Values that describe a quality or characteristic of a group",
+            "B) Values that represent measured or counted quantities as a number",
+            "C) Images, audio, and video data",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Categorical data are values that describe a quality or characteristic of a group of observations and usually take only a limited number of values."
+    },
+    {
+        "question": "How can numerical data be further classified?",
+        "options": [
+            "A) Continuous data and discrete data",
+            "B) Nominal data and ordinal data",
+            "C) Cross-sectional data and time-series data",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Numerical data can be further split into two types: continuous data, which can take on any numerical value in a specified range, and discrete data, which are limited to a finite number of values."
+    },
+    {
+        "question": "How can categorical data be further classified?",
+        "options": [
+            "A) Continuous data and discrete data",
+            "B) Nominal data and ordinal data",
+            "C) Cross-sectional data and time-series data",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "Categorical data can be further classified into two types: nominal data, which are not amenable to being organized in a logical order, and ordinal data, which can be logically ordered or ranked."
+    },
+    {
+        "question": "What are the three types of data based on collection?",
+        "options": [
+            "A) Continuous, discrete, and structured data",
+            "B) Cross-sectional, time-series, and panel data",
+            "C) Structured and unstructured data",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "Based on how they are collected, data can be categorized into three types: cross-sectional data, time series data, and panel data."
+    },
+    {
+        "question": "What is cross-sectional data?",
+        "options": [
+            "A) A sequence of observations for a single observational unit on a specific variable collected over time",
+            "B) A list of the observations of a specific variable from multiple observational units at a given point in time",
+            "C) A mix of time-series and cross-sectional data consisting of observations through time on one or more variables for multiple observational units",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "Cross-sectional data are a list of the observations of a specific variable from multiple observational units at a given point in time."
+    },
+    {
+        "question": "What is a frequency distribution?",
+        "options": [
+            "A) A tabular display of data constructed by counting the observations of a variable by distinct values or groups",
+            "B) A visual tool to display categorical data using nested rectangles",
+            "C) A graph of frequency distributions obtained by drawing straight lines joining successive midpoints of bars",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "A frequency distribution is a tabular display of data constructed either by counting the observations of a variable by distinct values or groups."
+    },
+    {
+        "question": "What is the relative frequency in a frequency distribution?",
+        "options": [
+            "A) The number of observations in a bin divided by the total number of observations",
+            "B) The fraction of observations that are less than the upper limit of each bin",
+            "C) The cumulative sum of the relative frequencies in a frequency distribution",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "The relative frequency of observations in a bin is the number of observations in the bin divided by the total number of observations."
+    },
+    {
+        "question": "What is a contingency table used for?",
+        "options": [
+            "A) Evaluating the performance of a classification model",
+            "B) Investigating potential associations between two categorical variables",
+            "C) Displaying the frequency distributions of numerical variables",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "A contingency table is a tabular format that displays the frequency distributions of two or more categorical variables simultaneously, often used to investigate potential associations between them."
+    },
+    {
+        "question": "What is visualization?",
+        "options": [
+            "A) Presentation of data in a pictorial or graphical format",
+            "B) Calculation of central tendency measures",
+            "C) Organizing data for quantitative analysis",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Visualization is the presentation of data in a pictorial or graphical format for the purpose of increasing understanding and gaining insights into the data."
+    },
+    {
+        "question": "What is a histogram used for?",
+        "options": [
+            "A) Visualizing the joint variation in two numerical variables",
+            "B) Displaying frequency distributions of categorical data",
+            "C) Graphing frequency distributions obtained by drawing straight lines joining successive midpoints of bars",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "A histogram is a bar chart of data that have been grouped into a frequency distribution, obtained by drawing straight lines joining successive midpoints of bars representing class frequencies."
+    },
+    {
+        "question": "What is a bar chart used for?",
+        "options": [
+            "A) Plotting the frequency distribution of categorical data",
+            "B) Displaying the sequence of observations for a single observational unit over time",
+            "C) Visualizing the joint variation in two numerical variables",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "A bar chart is used to plot the frequency distribution of categorical data, with each bar representing a distinct category and the bar's height proportional to the frequency of the corresponding category."
+    },
+    {
+        "question": "What is a tree-map used for?",
+        "options": [
+            "A) Displaying categorical data using rectangles proportional to the group's values",
+            "B) Visualizing the joint variation in two numerical variables",
+            "C) Summarizing data in a tabular format and representing it using a color spectrum",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "A tree-map is a graphical tool to display categorical data, consisting of a set of colored rectangles representing different groups, with the area of each rectangle proportional to the value of the corresponding group."
+    },
+    {
+        "question": "What is a line chart used for?",
+        "options": [
+            "A) Visualizing the joint variation in two numerical variables",
+            "B) Displaying frequency distributions of categorical data",
+            "C) Representing textual data with word sizes proportional to their frequency",
+            "D) Visualizing ordered observations and displaying the change of data series over time"
+        ],
+        "answer": "Option D",
+        "justification": "A line chart is a type of graph used to visualize ordered observations and often to display the change of data series over time."
+    },
+    {
+        "question": "What is a scatter plot used for?",
+        "options": [
+            "A) Displaying the frequency distribution of categorical data",
+            "B) Visualizing the joint variation in two numerical variables",
+            "C) Representing textual data with word sizes proportional to their frequency",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "A scatter plot is a type of graph for visualizing the joint variation in two numerical variables by drawing dots indicating the values of the variables plotted against corresponding axes."
+    },
+    {
+        "question": "What is a heat map used for?",
+        "options": [
+            "A) Displaying the frequency distribution of categorical data",
+            "B) Visualizing the joint variation in two numerical variables",
+            "C) Summarizing data in a tabular format using a color spectrum",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "A heat map is a type of graphic that organizes and summarizes data in a tabular format and represents it using a color spectrum, often used in displaying frequency distributions or visualizing the degree of correlation among different variables."
+    },
+    {
+        "question": "What should be considered when selecting among chart types?",
+        "options": [
+            "A) The intended purpose of visualizing data",
+            "B) The size of the dataset",
+            "C) The availability of data visualization software",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "The key consideration when selecting among chart types is the intended purpose of visualizing data, such as exploring/presenting distributions or relationships or making comparisons."
+    },
+    {
+        "question": "What is a population?",
+        "options": [
+            "A) A subset of a population",
+            "B) Any descriptive measure of a population",
+            "C) All members of a specified group",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "A population is defined as all members of a specified group."
+    },
+    {
+        "question": "What is a sample?",
+        "options": [
+            "A) A subset of a population",
+            "B) Any descriptive measure of a population",
+            "C) All members of a specified group",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "A sample is a subset of a population."
+    },
+    {
+        "question": "What is a parameter?",
+        "options": [
+            "A) A subset of a population",
+            "B) Any descriptive measure of a population",
+            "C) All members of a specified group",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "A parameter is any descriptive measure of a population."
+    },
+    {
+        "question": "What is a sample statistic?",
+        "options": [
+            "A) A subset of a population",
+            "B) Any descriptive measure of a population",
+            "C) A quantity computed from or used to describe a sample",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "A sample statistic (statistic, for short) is a quantity computed from or used to describe a sample."
+    },
+    {
+        "question": "What are measures of central tendency used for?",
+        "options": [
+            "A) Selecting among alternative definitions of mean",
+            "B) Interpreting quantiles and related visualizations",
+            "C) Calculating and interpreting measures of dispersion",
+            "D) Specifying where data are centered"
+        ],
+        "answer": "Option D",
+        "justification": "Measures of central tendency, such as the mean, median, and mode, are used to specify where data are centered."
+    },
+    {
+        "question": "What is the arithmetic mean?",
+        "options": [
+            "A) The most frequently used measure of central tendency",
+            "B) The sum of the observations divided by the number of observations",
+            "C) The value of the middle item(s) when the items are sorted into order",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "The arithmetic mean is the sum of the observations divided by the number of observations, representing the most frequently used measure of central tendency."
+    },
+    {
+        "question": "What is the median?",
+        "options": [
+            "A) The most frequently used measure of central tendency",
+            "B) The sum of the observations divided by the number of observations",
+            "C) The value of the middle item(s) when the items are sorted into order",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "The median is the value of the middle item (or the mean of the values of the two middle items) when the items in a set are sorted into ascending or descending order."
+    },
+    {
+        "question": "What is the mode?",
+        "options": [
+            "A) The most frequently used measure of central tendency",
+            "B) The sum of the observations divided by the number of observations",
+            "C) The value of the middle item(s) when the items are sorted into order",
+            "D) The most frequently observed value"
+        ],
+        "answer": "Option D",
+        "justification": "The mode is the most frequently observed value and is the only measure of central tendency that can be used with nominal data."
+    },
+    {
+        "question": "What is a unimodal distribution?",
+        "options": [
+            "A) A distribution with one mode",
+            "B) A distribution with two modes",
+            "C) A distribution with three modes",
+            "D) A distribution with more than three modes"
+        ],
+        "answer": "Option A",
+        "justification": "A unimodal distribution is a distribution with one mode."
+    },
+    {
+        "question": "How is a portfolio's return calculated?",
+        "options": [
+            "A) By summing the returns on the individual assets",
+            "B) By multiplying the returns on the individual assets",
+            "C) By taking the average of the returns on the individual assets",
+            "D) By dividing the returns on the individual assets"
+        ],
+        "answer": "Option A",
+        "justification": "A portfolio's return is a weighted mean return computed from the returns on the individual assets, where the weight applied to each asset's return is the fraction of the portfolio invested in that asset."
+    },
+    {
+        "question": "What is the geometric mean?",
+        "options": [
+            "A) The sum of the observations divided by the number of observations",
+            "B) The average of the observations",
+            "C) The square root of the average squared deviations from the target",
+            "D) The n-th root of the product of the observations"
+        ],
+        "answer": "Option D",
+        "justification": "The geometric mean, \u00af\u00af\u00afXG=n\u221aX1X2X3\u2026XnX\u00afG=X1X2X3\u2026Xnn, of a set of observations X 1, X 2, \u2026, Xn is the n-th root of the product of the observations."
+    },
+    {
+        "question": "What is the harmonic mean?",
+        "options": [
+            "A) A measure of central tendency",
+            "B) The average of the observations",
+            "C) A measure of dispersion",
+            "D) A type of weighted mean"
+        ],
+        "answer": "Option D",
+        "justification": "The harmonic mean, \u00af\u00af\u00afXHX\u00afH, is a type of weighted mean in which an observation's weight is inversely proportional to its magnitude."
+    },
+    {
+        "question": "What are quantiles used for?",
+        "options": [
+            "A) Calculating and interpreting measures of central tendency",
+            "B) Selecting among alternative definitions of mean",
+            "C) Dividing a distribution into halves, quarters, fifths, and tenths",
+            "D) Interpreting kurtosis"
+        ],
+        "answer": "Option C",
+        "justification": "Quantiles, such as the median, quartiles, quintiles, deciles, and percentiles, are used as location parameters to divide a distribution into halves, quarters, fifths, tenths, and hundredths, respectively."
+    },
+    {
+        "question": "What is a box and whiskers plot used for?",
+        "options": [
+            "A) Displaying the frequency distribution of categorical data",
+            "B) Visualizing the joint variation in two numerical variables",
+            "C) Illustrating the interquartile range and the range outside the box",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "A box and whiskers plot is used to illustrate the interquartile range (the \"box\") as well as the range outside of the box based on the interquartile range, indicated by the \"whiskers.\""
+    },
+    {
+        "question": "What are dispersion measures used for?",
+        "options": [
+            "A) Selecting among alternative definitions of mean",
+            "B) Interpreting quantiles and related visualizations",
+            "C) Calculating and interpreting measures of central tendency",
+            "D) Describing the variability of outcomes around the mean"
+        ],
+        "answer": "Option D",
+        "justification": "Dispersion measures, such as the range, mean absolute deviation, variance, and standard deviation, are used to describe the variability of outcomes around the arithmetic mean."
+    },
+    {
+        "question": "What is the range?",
+        "options": [
+            "A) The average of the squared deviations around the mean",
+            "B) The sum of the observations divided by the number of observations",
+            "C) The difference between the maximum and minimum values of the dataset",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "The range is the difference between the maximum and minimum values of the dataset."
+    },
+    {
+        "question": "What is the mean absolute deviation (MAD)?",
+        "options": [
+            "D)?",
+            "A) The average of the squared deviations around the mean",
+            "B) The average of the absolute deviations of observations from the mean",
+            "C) The difference between the maximum and minimum values of the dataset",
+            "D) None of the above",
+            "D) is the average of the absolute deviations of observations from the mean."
+        ],
+        "answer": "Option B",
+        "justification": "The mean absolute deviation (MAD) is the average of the absolute deviations of observations from the mean."
+    },
+    {
+        "question": "What is the variance?",
+        "options": [
+            "A) The average of the absolute deviations of observations from the mean",
+            "B) The average of the squared deviations around the mean",
+            "C) The difference between the maximum and minimum values of the dataset",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "The variance is the average of the squared deviations around the mean."
+    },
+    {
+        "question": "What is the standard deviation?",
+        "options": [
+            "A) The average of the absolute deviations of observations from the mean",
+            "B) The positive square root of the variance",
+            "C) The sum of the observations divided by the number of observations",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "The standard deviation is the positive square root of the variance."
+    },
+    {
+        "question": "What is target downside deviation?",
+        "options": [
+            "A) A measure of central tendency",
+            "B) A measure of dispersion",
+            "C) A measure of risk below a given target",
+            "D) A measure of correlation"
+        ],
+        "answer": "Option C",
+        "justification": "Target downside deviation, or target semideviation, is a measure of the risk of being below a given target, calculated as the square root of the average squared deviations from the target including only those observations below the target."
+    },
+    {
+        "question": "What is the coefficient of variation (CV)?",
+        "options": [
+            "A) A measure of central tendency",
+            "B) A scale-free measure of dispersion",
+            "C) A measure of risk below a given target",
+            "D) A measure of correlation"
+        ],
+        "answer": "Option B",
+        "justification": "The coefficient of variation (CV) is the ratio of the standard deviation of a set of observations to their mean value, allowing direct comparisons of dispersion across different datasets and reflecting the correction for scale."
+    },
+    {
+        "question": "What does skewness measure?",
+        "options": [
+            "A) The degree to which a distribution is asymmetric about its mean",
+            "B) The combined weight of the tails of a distribution relative to the rest of the distribution",
+            "C) The association between two variables",
+            "D) The weight of the observations around the mean"
+        ],
+        "answer": "Option A",
+        "justification": "Skewness measures the degree to which a distribution is asymmetric about its mean."
+    },
+    {
+        "question": "What does kurtosis measure?",
+        "options": [
+            "A) The degree to which a distribution is asymmetric about its mean",
+            "B) The combined weight of the tails of a distribution relative to the rest of the distribution",
+            "C) The association between two variables",
+            "D) The weight of the observations around the mean"
+        ],
+        "answer": "Option B",
+        "justification": "Kurtosis measures the combined weight of the tails of a distribution relative to the rest of the distribution."
+    },
+    {
+        "question": "What does excess kurtosis represent?",
+        "options": [
+            "A) The value of kurtosis for all normal distributions",
+            "B) The degree to which a distribution is asymmetric about its mean",
+            "C) The combined weight of the tails of a distribution relative to the rest of the distribution",
+            "D) The weight of the observations around the mean"
+        ],
+        "answer": "Option A",
+        "justification": "Excess kurtosis is kurtosis minus 3, since 3 is the value of kurtosis for all normal distributions."
+    },
+    {
+        "question": "What does the correlation coefficient measure?",
+        "options": [
+            "A) The degree to which a distribution is asymmetric about its mean",
+            "B) The combined weight of the tails of a distribution relative to the rest of the distribution",
+            "C) The association between two variables",
+            "D) The weight of the observations around the mean"
+        ],
+        "answer": "Option C",
+        "justification": "The correlation coefficient is a statistic that measures the association between two variables, indicating how they move together or in opposite directions."
+    },
+    {
+        "question": "How is correlation coefficient calculated?",
+        "options": [
+            "A) The ratio of covariance to the product of the two variables' standard deviations",
+            "B) The sum of the observations divided by the number of observations",
+            "C) The average of the squared deviations around the mean",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "The correlation coefficient is calculated as the ratio of the covariance between two variables to the product of their standard deviations."
+    },
+    {
+        "question": "What does correlation imply?",
+        "options": [
+            "A) Causation between two variables",
+            "B) Association between two variables",
+            "C) No relationship between two variables",
+            "D) None of the above"
+        ],
+        "answer": "Option B",
+        "justification": "Correlation does not imply causation, simply association between two variables."
+    },
+    {
+        "question": "What issues can arise in evaluating correlation?",
+        "options": [
+            "A) The presence of outliers and spurious correlation",
+            "B) The size of the dataset and the availability of software",
+            "C) The type of visualization used and the frequency of observations",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Issues that can arise in evaluating correlation include the presence of outliers and spurious correlation."
+    },
+    {
+        "question": "How are data organized for quantitative analysis?",
+        "options": [
+            "A) In a one-dimensional array or a two-dimensional rectangular array",
+            "B) In a tree-map or a word cloud",
+            "C) In a heat map or a bubble line chart",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Raw data are typically organized into either a one-dimensional array or a two-dimensional rectangular array (also called a data table) for quantitative analysis."
+    },
+    {
+        "question": "What is the purpose of frequency distributions?",
+        "options": [
+            "A) To evaluate how data are distributed",
+            "B) To investigate potential associations between categorical variables",
+            "C) To summarize data in a tabular format using a color spectrum",
+            "D) None of the above"
+        ],
+        "answer": "Option A",
+        "justification": "Frequency distributions permit us to evaluate how data are distributed by displaying the observations of a variable by distinct values or groups."
+    },
+    {
+        "question": "How is a contingency table used in investment analysis?",
+        "options": [
+            "A) To evaluate the performance of a classification model",
+            "B) To summarize cross-sectional data",
+            "C) To investigate potential associations between two categorical variables",
+            "D) None of the above"
+        ],
+        "answer": "Option C",
+        "justification": "One application of contingency tables in investment analysis is to investigate potential associations between two categorical variables, often performed using a chi-square test of independence."
+    }
+]
