@@ -39,9 +39,8 @@ Open API GPT
 
 ```
 
-*You can generate the project tree using following tools*
-*[Project Tree Generator](https://woochanleee.github.io/project-tree-generator)*
-*[Generate from terminal](https://www.geeksforgeeks.org/tree-command-unixlinux/)*
+## Important links
+https://codelabs-preview.appspot.com/?file_id=1XmhLCE-nVoEAsEVM39BFWTvhlYFqiZ8ezFJiu62wbmM#0
 
 ## How to run Application locally
 
@@ -68,6 +67,6 @@ Familiarity with open API
 
 Name            | Contribution %| Contributions |
 
-Aniket Giram    | 0%            |Step 1         |
-Sudarshan Dudhe | 0%            |Step 2         |
-Rasika Kole     | 0%            |Step 3         |
+Aniket Giram    | 35%            |Step 1, 2     |
+Sudarshan Dudhe | 35%            |Step 3, 4     |
+Rasika Kole     | 30%            |Frontend, documentation|
